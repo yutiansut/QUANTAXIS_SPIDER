@@ -1,0 +1,139 @@
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+品橙旅游
+http://www.pinchain.com/
+最新文章的列表只有首页有。
+
+#22.Travel weekly China
+http://www.travelweekly-china.com/  有很大问题
+
+<a href='/31774?pg=2' class='insert-more show-more'
+ _p=40069684 _wid='711f470d-d16e-432d-bda5-13c3a22e3689' _n=2 ><span><b class="b"><span class="thin"
+>More</span> Articles</b></span></a>
+40069690
+post :
+http://travelweekly-china.com/Dyna.asmx/PageContentList
+{"req":{"PageKey":"40069682","WidgetId":"711f470d-d16e-432d-bda5-13c3a22e3689","PageNumber":"2"}}
+
+
+travelweekchina
+
+a = u'\u65b0\u7f57\u9152\u5e97\u96c6\u56e2\u65d7\u4e0b\u9ad8\u7aef\u5546\u52a1\u9152\u5e97\u54c1\u724c\u65b0\u7f57\u8212\u6cf0\u9152\u5e97\u7ee7\u7eed\u4e0d\u65ad\u6269\u5f20\uff0c\u5929\u5b89\u65b0\u7f57\u8212\u6cf0\u9152\u5e977\u670811\u65e5\u5168\u65b0\u4eae\u76f8\u3002...&nbsp;'
+>>> sss = BeautifulSoup(a)
+
+新闻中会有\xa0
+可能是空格导致的错误
+
+unicode(news_list[1].p)
+content = unicode(news.p).replace(u'\xa0', u'').replace("<p>","").replace("<\p>","")
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+qdaily
+
+会消除重复？
+'dupefilter/filtered': 3,
+
+
+
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+
+http://www.leiphone.com
+
+谁是安全界奥斯卡“Pwnie Awards”？
+2016-07-20 14:20
+
+
+
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+7/25
+一、(中国经营报:http://www.cb.com.cn/)
+http error 521
+js动态生成cookie 然后带着重定向到首页
+二、(一财网：http://m.yicai.com/news/business/)
+js动态生成文章。模拟点击按钮
+
+#解决办法:
+selenium + phantomjs 可以模拟点击操作
+但
+TODO:phantomjs无法解决521重定向，
+原因不明
+
+可以用headless firefox 解决
+链接地址：http://scraping.pro/use-headless-firefox-scraping-linux/
+
+代码实例：
+from pyvirtualdisplay import Display
+from selenium import webdriver
+import time
+display = Display(visible=0, size=(800, 600))
+display.start()
+
+browser = webdriver.Firefox()
+# browser.get('http://www.baidu.com')
+browser.get('http://www.cb.com.cn/')
+print browser.page_source
+time.sleep(3)
+print browser.page_source
+browser.quit()
+
+display.stop()
+
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+
+代码重构：
+    新闻列表到抛出item的过程可以抽象出来
+
+解决：
+    util.judge_news_crawl
+
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+
+http://www.21cbh.com/
+
+bad gateway
+
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+http://i.wshang.com/
+
+天下商网 不更新 止于6/15
+
+解决：手机版最新的。
+
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+11/14
+
+21. 中国经营报
+http://www.cb.com.cn/
+没有观点栏目
+http://www.cb.com.cn/opinion/
+以前爬取的页面数据截止于8月22号
+
+
+28.每日经济新闻
+
+http://www.nbd.com.cn/
+
+页面改版，需重新定义需求
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+中国民用航空网:
+没有内容
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/logging/__init__.py", line 884, in emit
+    stream.write(fs % msg.encode("UTF-8"))
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xef in position 1086: ordinal not in range(128)
+Logged from file scraper.py, line 158
+----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+news_content_group.find("div",class_="related_posts").replace_with("")
+AttributeError: 'NoneType' object has no attribute 'find'
+
+https://api.wallstreetcn.com/v2/pcarticles?page=2&limit=20&category=most-recent&articleCursor=1480291201

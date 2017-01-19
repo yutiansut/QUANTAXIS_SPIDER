@@ -1,0 +1,81 @@
+pip 镜像：https://pypi.tuna.tsinghua.edu.cn/simple
+pip install XXX -i https://pypi.tuna.tsinghua.edu.cn/simple
+sudo apt-get install python-scrapy
+
+scrapy startproject peojectname
+
+apt-get install Python-bs4
+
+#开启某个爬虫
+scrapy crawl thepaper
+
+#进入调试
+scrapy shell
+
+fetch("url")
+
+
+from bs4 import BeautifulSoup
+
+from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
+
+import logging
+logger = logging.getLogger('USerAgent')
+logger.info("msg")
+
+request = scrapy.Request("http://www.example.com/some_page.html",
+                             callback=self.parse_page2)
+
+scrapy crawl meadin -o meadin.json
+
+scrapy crawl meadin -o log/meadin.json --logfile log/meadin.log
+
+-------------------------------------------------
+scrapy crawl thepaper -o log/thepaper.json --logfile log/thepaper.log
+scrapy crawl meadin -o log/meadin.json --logfile log/meadin.log
+scrapy crawl ctcnn -o log/ctcnn.json --logfile log/ctcnn.log
+scrapy crawl qdaily -o log/qdaily.json --logfile log/qdaily.log
+scrapy crawl twc -o log/twc.json --logfile log/twc.log
+scrapy crawl leiphone -o log/leiphone.json --logfile log/leiphone.log
+scrapy crawl cyzone -o log/cyzone.json --logfile log/cyzone.log
+scrapy crawl 163 -o log/163.json --logfile log/163.log
+scrapy crawl wallstreetcn -o log/wallstreetcn.json --logfile log/wallstreetcn.log
+
+
+-------------------------------------------------
+#BeautifulSoup
+
+sopu.find(name="tag", attrs={"attr1": True});
+
+soup.select('div[class="news_li"]')
+
+.has_attr("lasttime")
+
+PageElement.replace_with()
+
+unicode(news_list[1].p)
+
+如果tag中包含多个字符串 [2] ,可以使用 .strings 来循环获取:
+
+-------------------------------------------------
+#re
+
+re.search(pattern, string, flags)
+
+re.sub(pattern, repl, string, count)
+
+re.split(r'\s+', text)；
+
+
+------------------------------------------------
+#time,datetime
+time.strptime(date,"%Y-%m-%d")
+
+datetime.datetime.combine(datetime.date.today(), datetime.time.min) #当天0点
+
+datetime.datetime.now()
+
+datetime.datetime.strptime(news_date.encode('utf-8'),"%Y年%m月%d日 %H:%M:%S")
+
+
+datetime.timedelta.days
