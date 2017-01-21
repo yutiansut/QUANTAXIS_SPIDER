@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for imfluenceSpider project
+# Scrapy settings for influenceSpider project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'imfluenceSpider'
+BOT_NAME = 'influenceSpider'
 
-SPIDER_MODULES = ['imfluenceSpider.spiders']
-NEWSPIDER_MODULE = 'imfluenceSpider.spiders'
+SPIDER_MODULES = ['influenceSpider.spiders']
+NEWSPIDER_MODULE = 'influenceSpider.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'imfluenceSpider (+http://www.yourdomain.com)'
+#USER_AGENT = 'influenceSpider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'imfluenceSpider.middlewares.ImfluencespiderSpiderMiddleware': 543,
+#    'influenceSpider.middlewares.InfluencespiderSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'imfluenceSpider.middlewares.MyCustomDownloaderMiddleware': 543,
+#    'influenceSpider.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'imfluenceSpider.pipelines.SomePipeline': 300,
+#    'influenceSpider.pipelines.SomePipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
