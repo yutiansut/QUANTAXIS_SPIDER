@@ -8,14 +8,14 @@ from influenceSpider.items import InfluencespiderItem
 class IpspiderSpider(scrapy.Spider):
     name = "IPSpider"
     allowed_domains = ["xueqiu.com"]
-    start_urls = ['http://xueqiu.com/people/']
+    start_urls = ['https://xueqiu.com/people/']
     item = [ ]
     def parse(self, response):
         sel = Selector(response)  
         item=InfluencespiderItem();
         id=response.xpath('//a/@href').extract()
         for i in id:
-            url='http://www.xueqiu.com'+i
+            url='https://www.xueqiu.com'+i
             print i
             print url
                # item['html']=url;
