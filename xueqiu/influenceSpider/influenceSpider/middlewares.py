@@ -8,9 +8,10 @@
 from scrapy import signals
 from selenium import webdriver
 from scrapy.http import HtmlResponse
-import time
+import time  
 import random
 import base64
+#雪球的防封机制 bt
 
 class InfluencespiderSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
@@ -22,7 +23,18 @@ class InfluencespiderSpiderMiddleware(object):
         if spider.name =="IPSpider":
             print "PhantomJS is starting..."
             driver = webdriver.PhantomJS() #指定使用的浏览器
+            driver.customHeaders = {  
+                "Host": "xueqiu.com",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+                "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36 SE 2.X MetaSr 1.0",
+                "Accept-Encoding": "gzip, deflate, sdch, br",
+                "Accept-Language": "zh-CN,zh;q=0.8",
+                "Connection":"keep-alive",
+                "Referer": "http://xueqiu.com/",
+                'X-Requested-With': 'XMLHttpRequest'
+            };
         # driver = webdriver.Firefox()
+           # driver.settings.userAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36 LBBROWSER 1.1"  
             driver.get(request.url)
             time.sleep(1)
             js = "var q=document.documentElement.scrollTop=10000"
