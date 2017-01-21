@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 import scrapy
+from scrapy.spider import Spider  
+from scrapy.http import Request  
+from scrapy.selector import Selector  
 from influenceSpider.items import InfluencespiderItem
 
 class IpspiderSpider(scrapy.Spider):
@@ -8,5 +11,12 @@ class IpspiderSpider(scrapy.Spider):
     start_urls = ['http://xueqiu.com/people/']
     item = [ ]
     def parse(self, response):
-        
-        pass
+        sel = Selector(response)  
+        item=InfluencespiderItem();
+        id=response.xpath('//a/@href').extract()
+        for i in id:
+            url='http://www.xueqiu.com'+i
+            print i
+            print url
+               # item['html']=url;
+            yield Request(url, callback=self.parse)
