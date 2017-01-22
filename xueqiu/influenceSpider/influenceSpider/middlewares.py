@@ -13,26 +13,43 @@ import random
 import base64
 #雪球的防封机制 bt
 
+
+
+
 class InfluencespiderSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
 
-
+  
     def process_request(self, request, spider):
         if spider.name =="IPSpider":
             print "PhantomJS is starting..."
-            driver = webdriver.PhantomJS() #指定使用的浏览器
-            driver.customHeaders = {  
+            
+           
+            headers = {
+                'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
                 "Host": "xueqiu.com",
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-                "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36 SE 2.X MetaSr 1.0",
+                'Accept-Language':'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:47.0) Gecko/20100101 Firefox/47.0',
+                'Connection': 'keep-alive',
                 "Accept-Encoding": "gzip, deflate, sdch, br",
-                "Accept-Language": "zh-CN,zh;q=0.8",
-                "Connection":"keep-alive",
-                "Referer": "http://xueqiu.com/",
+                "Referer": "https://xueqiu.com/people",
                 'X-Requested-With': 'XMLHttpRequest'
-            };
+            }
+
+            for key in headers:
+                webdriver.DesiredCapabilities.PHANTOMJS['phantomjs.page.customHeaders.{}'.format(key)] = headers[key]
+           # dcap = dict(DesiredCapabilities.PHANTOMJS)
+        #    dcap["phantomjs.page.settings.userAgent"] = (
+          #  "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.23 Mobile Safari/537.36"
+        #    )
+            service_args = [
+            '--proxy-type=https',
+            '--ignore-ssl-errors=true'
+            ]
+            driver = webdriver.PhantomJS(service_args=service_args)
+#
         # driver = webdriver.Firefox()
            # driver.settings.userAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36 LBBROWSER 1.1"  
             driver.get(request.url)
@@ -42,49 +59,7 @@ class InfluencespiderSpiderMiddleware(object):
             time.sleep(3)
             body = driver.page_source
             print("访问"+request.url)
+            driver.get_cookies();
             return HtmlResponse(driver.current_url, body=body, encoding='utf-8', request=request)
         else:
             return
-
-
-    @classmethod
-    def from_crawler(cls, crawler):
-        # This method is used by Scrapy to create your spiders.
-        s = cls()
-        crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
-        return s
-
-    def process_spider_input(self,response, spider):
-        # Called for each response that goes through the spider
-        # middleware and into the spider.
-
-        # Should return None or raise an exception.
-        return None
-
-    def process_spider_output(self,response, result, spider):
-        # Called with the results returned from the Spider, after
-        # it has processed the response.
-
-        # Must return an iterable of Request, dict or Item objects.
-        for i in result:
-            yield i
-
-    def process_spider_exception(self,response, exception, spider):
-        # Called when a spider or process_spider_input() method
-        # (from other spider middleware) raises an exception.
-
-        # Should return either None or an iterable of Response, dict
-        # or Item objects.
-        pass
-
-    def process_start_requests(self,start_requests, spider):
-        # Called with the start requests of the spider, and works
-        # similarly to the process_spider_output() method, except
-        # that it doesn’t have a response associated.
-
-        # Must return only requests (not items).
-        for r in start_requests:
-            yield r
-
-    def spider_opened(self, spider):
-        spider.logger.info('Spider opened: %s' % spider.name)
