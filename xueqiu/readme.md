@@ -4,3 +4,10 @@
 2.用scrapy框架爬     influenceSpider/
 3.用nodejs爬         nodejsCrawl/
 ```
+
+## Using nodejs
+```
+cd nodejsCrawl
+npm install
+npm start
+```
