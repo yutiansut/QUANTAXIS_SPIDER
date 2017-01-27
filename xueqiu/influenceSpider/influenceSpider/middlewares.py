@@ -18,7 +18,7 @@ class InfluencespiderSpiderMiddleware(object):
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
 
-    def process_request(self, request, spider):
+    def process_request(self, request, spider,cookies):
         print "PhantomJS is starting..."
         dcap = dict(DesiredCapabilities.PHANTOMJS)
         dcap["phantomjs.page.settings.userAgent"] = (
@@ -50,6 +50,7 @@ class InfluencespiderSpiderMiddleware(object):
 #        # driver = webdriver.Firefox()
 #           # driver.settings.userAgent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.137 Safari/537.36 LBBROWSER 1.1"  
         print 'before get'
+        driver.add_cookie(cookies)
         driver.get(request.url)
         print 'after get'
         time.sleep(1)
