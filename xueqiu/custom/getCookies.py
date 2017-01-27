@@ -1,3 +1,4 @@
+import selenium
 from selenium import webdriver  
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import json
@@ -27,18 +28,12 @@ class getCookies:
         allNames=driver.find_element_by_class_name('screen_name')
         print allNames.get_attribute('innerHTML')
         print driver.find_element_by_xpath(".//*[@id='center']/div/div[2]/div[1]/div/div[1]/ul/li[1]/div/div/a[2]/span").get_attribute("innerHTML")        
-        for i in range(2,4):
-           # print 'i=',i
-            xpathStr = ".//*[@id='center']/div/div[2]/div[1]/div/div[1]/ul/li[%s]/div/div/a[2]/span" %(i)
-           # print xpathStr
-          #  x=         './/*[@id='center']/div/div[2]/div[1]/div/div[1]/ul/li[2]/div/div/a[2]/span'
-                       #'.//*[@id='center']/div/div[2]/div[1]/div/div[1]/ul/li[6]/div/div/a/span'
-           # xpathSTR = ".//*[@id='center']/div/div[2]/div[1]/div/div[1]/ul/li[1]/div/div/a[2]/span"
-           # print xpathSTR
-           # print driver.find_element_by_xpath(xpathSTR).get_attribute("innerHTML")
-            print driver.find_element_by_xpath(xpathStr).get_attribute("innerHTML")
+        testJson = driver.get("https://xueqiu.com/recommend/user/industry.json?id=79&_=1485504423809")
+        driver.current_window_handle()
+        
+        print testJson
                   #for i in range(1,100):
         #    print driver.find_element_by_class_name("screen_name").innerHTML
         #.//*[@id='center']/div/div[2]/div[1]/div/div[1]/ul/li[1]/div/div/a[2]/span
         #.//*[@id='center']/div/div[2]/div[1]/div/div[1]/ul/li[2]/div/div/a[2]/span
-        #.//*[@id='center']/div/div[2]/div[1]/div/div[2]/ul/li[4]/div/div/a/span
+        #.//*[@id='center']/div/div[2]/div[1]/div/div[2]/ul/li[4]/div/div/a/span    
