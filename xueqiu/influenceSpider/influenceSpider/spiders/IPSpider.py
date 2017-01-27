@@ -7,45 +7,26 @@ from influenceSpider.items import InfluencespiderItem
 import json
 import base64
 import requests
-
-
+from selenium import webdriver  
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+import getCookies as cok
 
 class IpspiderSpider(Spider):
-    with open('influenceSpider/spiders/setting.json', 'r') as f:
-        user = json.load(f)
-        print user
-        #user.mail = user['mail']
-        phone=user['phone']
-        psw = user['psw']
     #
     name = "IPSpider"
-    allowed_domains = ["xueqiu.com"]
-    
+    allowed_domains = ["xueqiu.com"] 
     item = [ ]
-    
-    
-    start_urls = ['https://xueqiu.com/people']
-
-    
-    cookies = [ ]
-    loginurls="https://xueqiu.com/user/login"
-    formdata= {
-        "areacode":"86",
-        "password":psw,
-        "remember_me":"on",
-        "telephone":phone
-    }
-    r = Request(loginurls)
-    print r
-
-    def parse(self, response):
-        sel = Selector(response)  
-        item=InfluencespiderItem();
-        id=response.xpath('//a/@href').extract()
-        for i in id:
-            url='https://www.xueqiu.com'+i
-            print i
-            print url
-               # item['html']=url;
-            yield Request(url, callback=self.parse)
-
+    start_urls = 'https://xueqiu.com/people'
+    #print cookies
+    t=cok.getCookies()
+    cookies = t.getCookiesFromXueqiu('xueqiu');
+    print cookies
+    print 'start requests'
+    def parse (self,response):
+        print self.start_urls
+        print self.cookies
+        r = Request(url = self.start_urls,
+                    method='GET',
+                    cookies=self.cookies,
+                    meta={'dont_merge_cookies': True})
+        print r

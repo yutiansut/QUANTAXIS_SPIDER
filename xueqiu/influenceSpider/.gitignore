@@ -1,0 +1,4 @@
+*.log
+*.txt
+*.pyc
+*.json
