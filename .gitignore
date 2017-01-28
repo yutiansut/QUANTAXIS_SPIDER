@@ -5,3 +5,10 @@
 *.txt
 *.json
 node_modules/
+.DS_Store
+dist/
+.idea/
+npm-debug.log
+selenium-debug.log
+test/unit/coverage
+test/e2e/reports
