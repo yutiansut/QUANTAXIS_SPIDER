@@ -12,4 +12,4 @@ python-scrapy-selenium-webdriver
 mongodb
 redis
 ```
-技术栈
+![技术栈](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-visualCraw/todo.png)
