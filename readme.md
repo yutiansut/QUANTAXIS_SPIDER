@@ -12,3 +12,4 @@ python-scrapy-selenium-webdriver
 mongodb
 redis
 ```
+技术栈
