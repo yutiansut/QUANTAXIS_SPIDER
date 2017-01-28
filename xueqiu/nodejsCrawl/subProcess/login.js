@@ -1,17 +1,19 @@
 var webdriver = require('selenium-webdriver'),
     chrome = require('selenium-webdriver/chrome'),
     firefox = require('selenium-webdriver/firefox'),
-    phantom = require('phantom'),
+    phantomjs = require('phantomjs-server');
     By = webdriver.By,
     until = webdriver.until;
 
+var SeleniumServer = require('selenium-webdriver/remote').SeleniumServer;
+var server = new SeleniumServer('bin/selenium-server-standalone.jar', { port: 4444 });
+server.start();
 
-var driver = new webdriver.Builder()
-    .forBrowser('phantom')
-    .setChromeOptions(/* ... */)
-    .setFirefoxOptions(/* ... */)
-    .setPhantomOptions()
-    .build();
+
+var driver = new webdriver.Builder().
+  usingServer(phantom.address()). // This part is important!
+  withCapabilities({ "browserName": "phantomjs" }).
+  build();
 
 driver.get('https://xueqiu.com/user/login')
     .then(_ => driver.wait(until.titleIs("登录 - 雪球"), 1000))
