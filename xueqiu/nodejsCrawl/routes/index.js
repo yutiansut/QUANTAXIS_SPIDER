@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 router.get('/login', function(req, res, next) {
   console.log(JSON.stringify(req.query.id));
   console.log(req.query);
-  console.lgo(JSON.stringify(req.query))
+  console.log(JSON.stringify(req.query))
   res.render('index', { title: 'yutiansut' });
 });
 
