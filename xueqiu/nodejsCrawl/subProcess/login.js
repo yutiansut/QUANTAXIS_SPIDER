@@ -11,7 +11,7 @@ server.start();
 
 
 var driver = new webdriver.Builder().
-  usingServer(phantom.address()). // This part is important!
+  usingServer(phantomjs.address()). // This part is important!
   withCapabilities({ "browserName": "phantomjs" }).
   build();
 
@@ -22,7 +22,7 @@ driver.get('https://xueqiu.com/user/login')
     .then(_ => driver.findElement(By.name('remember_me')).click())
     .then(_ => driver.findElement({"class":'button.button'}).click())
     .then(_ => driver.wait(until.titleIs("我的首页 - 雪球"), 1000))
-console.log(driver.getCookie())
+console.log()
 
 
 driver.quit();
