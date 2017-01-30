@@ -23,7 +23,7 @@ class WallstreetcnPipeline(object):
         clinet = pymongo.MongoClient("localhost", 27017)
         db = clinet["wsc"]
         self.articles = db['articles']
-        self.urlpool = db['pool']
+        self.title= db['title']
 
     def process_item(self, item, spider):
         print 'get data'
@@ -34,7 +34,7 @@ class WallstreetcnPipeline(object):
                 pass
         elif isinstance(item, articlePool):
             try:
-                self.urlpool.insert(dict(item))
+                self.title.insert(dict(item))
             except Exception:
                 pass
         return item

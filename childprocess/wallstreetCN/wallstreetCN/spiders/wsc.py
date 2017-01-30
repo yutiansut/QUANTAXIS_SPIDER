@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import scrapy
-from wallstreetCN.items import WallstreetcnItem
+import re
+import json
+from wallstreetCN.items import WallstreetcnItem,articlePool
 from wallstreetCN.phantomjs import selenium_request
 from scrapy.spiders import Spider  
 from scrapy.selector import Selector  
@@ -12,9 +14,11 @@ class WscSpider(scrapy.Spider):
     
     def start_requests(self):
         link = 'http://wallstreetcn.com/news'
-        print(link)
-        #yield scrapy.Request(link, cookies=self.cookies,headers=self.headers,callback=self.parse_url_list)
-        yield scrapy.Request(link,self.parse_url_list)
+        for i in range(1,700):
+            api ='https://api.wallstreetcn.com/v2/pcarticles?page=%s&limit=100' %i
+            yield scrapy.Request(api,self.parse_json_list)
+        #yield scrapy.Request(link, cookies=self.cookies,headers=self.headers,callback=self.parse_url_list) 
+       # yield scrapy.Request(link,self.parse_url_list)
 
     def parse_url_list(self, response):
         sel = scrapy.Selector(response)
@@ -98,14 +102,24 @@ class WscSpider(scrapy.Spider):
        #     print('yanzheng')
                             #yield scrapy.Request(first_url, callback=self.parse)
 
+    def parse_json_list(self,response):
+        sel = scrapy.Selector(response)
 
-    def parse_item(self,url):
-        api ='https://api.wallstreetcn.com/v2/pcarticles?page=2&limit=100'
-        body = selenium_request(url)
-        soup = BeautifulSoup(body, "lxml")
-        #content = soup.find("div", id="js_content")
-        #print(title)
-        result['title'] = title.strip()
-        result['url'] = url
-        return result
-        return XiciItem
+        data = json.loads(response.body)
+        # print data
+        news_list = data['posts']
+        articleCursor = data['articleCursor']
+        for news in news_list:
+            item = articlePool()
+            news_data = news.get("resource",None)
+            item["title"]=news_data.get("title", None)
+            item["comment_num"]=news_data.get("commentCount", None)
+            item["pic"]=news_data.get("imageUrl", None)
+            item["news_no"]=news_data.get("id", None)
+            item["title"]=news_data.get("title", None)
+            news_url = news_data.get("url", None)
+            item["news_url"] = news_url
+            item["abstract"] = news_data.get("summary", None)
+            item["author"] = news_data.get("user", None).get("screenName", None) if news_data.get("user", None) else None
+            yield item
+            yield articlePool
