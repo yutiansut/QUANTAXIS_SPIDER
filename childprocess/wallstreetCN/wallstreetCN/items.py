@@ -15,4 +15,8 @@ class WallstreetcnItem(scrapy.Item):
     url = scrapy.Field()
     content = scrapy.Field()
     poster = scrapy.Field()
+    tag = scrapy.Field()
+    time = scrapy.Field()
+    viewNum = scrapy.Field()
+    comments = scrapy.Field()
 
