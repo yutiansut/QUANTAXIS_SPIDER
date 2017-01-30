@@ -6,10 +6,11 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "try": "node ./bin/www | cross-env NODE_ENV=development webpack-dev-server --open --inline --hot"
   },
-  
   "dependencies": {
+    "axios": "^0.15.3",
     "body-parser": "~1.15.2",
     "child-process": "^1.0.2",
     "cookie-parser": "~1.4.3",
