@@ -24,6 +24,8 @@ def selenium_request(url):
     driver.get(url)
     driver.implicitly_wait(3)
     time.sleep(5)
+    js = "var q=document.documentElement.scrollTop=10000"
+    driver.execute_script(js) #可执行js，模仿用户操作。此处为将页面拉至最底端。
     true_page = driver.page_source  # .decode('utf-8','ignore')
     driver.close()
     return true_page
