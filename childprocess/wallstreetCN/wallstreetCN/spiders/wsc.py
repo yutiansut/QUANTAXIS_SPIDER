@@ -57,13 +57,13 @@ class WscSpider(scrapy.Spider):
         print(article_tag)
         #poster
         article_poster_xpath = ".//*[@id='article-rightbar']/div[1]/div[1]/div[1]/a[2]"
-        article_poster = sel.xpath(article_poster_xpath).extract()
+        article_poster = sel.xpath(article_poster_xpath).extract()[0]
         print(article_poster)
-        article_time_xpath = ".//*[@id='main']/div[1]/div[1]/div[2]/div[1]"
+        article_time_xpath = ".//*[@id='main']/div[1]/div[1]/div[2]/div[1]"[0]
         article_time = sel.xpath(article_time_xpath).extract()
         print(article_time)
         article_viewNum_xpath = ".//*[@id='js-article-viewCount']"
-        article_viewNum = sel.xpath(article_viewNum_xpath).extract()
+        article_viewNum = sel.xpath(article_viewNum_xpath).extract()[0] 
         print(article_viewNum)
         #comments
         article_comments_xpath = ".//*[@id='comments']/div/div/div/div/div[2]/p"
