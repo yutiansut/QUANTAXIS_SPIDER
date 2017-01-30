@@ -14,7 +14,13 @@ var http = require('http');
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
+//...............
 
+app.use(cors({
+    origin:['http://localhost:3000'],
+    methods:['GET','POST'],
+    alloweHeaders:['Conten-Type', 'Authorization']
+}));
 /**
  * Create HTTP server.
  */

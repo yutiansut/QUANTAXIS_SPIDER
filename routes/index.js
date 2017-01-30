@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/first', function(req, res, next) {
+router.post('/first', function(req, res, next) {
   res.json({name:'aaa',pwd:'123'});
 });
 
