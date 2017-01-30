@@ -103,7 +103,6 @@ class WscSpider(scrapy.Spider):
         api ='https://api.wallstreetcn.com/v2/pcarticles?page=2&limit=100'
         body = selenium_request(url)
         soup = BeautifulSoup(body, "lxml")
-        title = soup.find("h2", id="activity-name").get_text()
         #content = soup.find("div", id="js_content")
         #print(title)
         result['title'] = title.strip()
