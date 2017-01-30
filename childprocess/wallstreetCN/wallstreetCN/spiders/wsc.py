@@ -3,6 +3,7 @@
 import scrapy
 import re
 import json
+import pymongo
 from wallstreetCN.items import WallstreetcnItem,articlePool
 from wallstreetCN.phantomjs import selenium_request
 from scrapy.spiders import Spider  
