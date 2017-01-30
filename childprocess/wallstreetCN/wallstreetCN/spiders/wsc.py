@@ -3,8 +3,6 @@
 import scrapy
 from wallstreetCN.items import WallstreetcnItem
 from wallstreetCN.phantomjs import selenium_request
-from lxml import etree
-from bs4 import BeautifulSoup 
 from scrapy.spiders import Spider  
 from scrapy.selector import Selector  
 
