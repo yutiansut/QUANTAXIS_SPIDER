@@ -8,7 +8,7 @@ from wallstreetCN.items import WallstreetcnItem,articlePool
 from wallstreetCN.phantomjs import selenium_request
 from scrapy.spiders import Spider  
 from scrapy.selector import Selector  
-
+import db.py
 
 class WscSpider(scrapy.Spider):
     name = "wsc"
