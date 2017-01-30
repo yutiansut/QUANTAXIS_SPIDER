@@ -40,7 +40,7 @@ class WscSpider(scrapy.Spider):
         storageItem=WallstreetcnItem()
         sel = scrapy.Selector(response)
         #title
-        article_title_xpath=".//*[@id='main']/div[1]/div[1]/div[1]"
+        article_title_xpath=".//*[@id='main']/div[1]/div[1]/div[1]/text()"
         article_title = sel.xpath(article_title_xpath).extract()
         print(article_title)
         #url
@@ -48,25 +48,25 @@ class WscSpider(scrapy.Spider):
         article_url = sel.xpath(article_url_xpath).extract()
         print(article_url)
         #content
-        article_content_xpath=".//*[@id='main']/div[1]/div[2]/p"
+        article_content_xpath=".//*[@id='main']/div[1]/div[2]/p//text()"
         article_content = sel.xpath(article_content_xpath).extract()
         print(article_content)
         #tag
-        article_tag_xpath = ".//*[@id='article-leftbar']/ul/li[1]/div[2]/div"
+        article_tag_xpath = ".//*[@id='article-leftbar']/ul/li[1]/div[2]/div//text()"
         article_tag = sel.xpath(article_tag_xpath).extract()
         print(article_tag)
         #poster
-        article_poster_xpath = ".//*[@id='article-rightbar']/div[1]/div[1]/div[1]/a[2]"
-        article_poster = sel.xpath(article_poster_xpath).extract()[0]
+        article_poster_xpath = ".//*[@id='article-rightbar']/div[1]/div[1]/div[1]/a[2]/text()"
+        article_poster = sel.xpath(article_poster_xpath).extract()
         print(article_poster)
-        article_time_xpath = ".//*[@id='main']/div[1]/div[1]/div[2]/div[1]"[0]
+        article_time_xpath = ".//*[@id='main']/div[1]/div[1]/div[2]/div[1]/text()"
         article_time = sel.xpath(article_time_xpath).extract()
         print(article_time)
-        article_viewNum_xpath = ".//*[@id='js-article-viewCount']"
-        article_viewNum = sel.xpath(article_viewNum_xpath).extract()[0] 
+        article_viewNum_xpath = ".//*[@id='js-article-viewCount']/text()"
+        article_viewNum = sel.xpath(article_viewNum_xpath).extract()
         print(article_viewNum)
         #comments
-        article_comments_xpath = ".//*[@id='comments']/div/div/div/div/div[2]/p"
+        article_comments_xpath = ".//*[@id='comments']/div/div/div/div/div[2]/p/text()"
         article_comments = sel.xpath(article_comments_xpath).extract()
         print(article_comments)
         storageItem["title"]=article_title
