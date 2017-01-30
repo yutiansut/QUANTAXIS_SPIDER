@@ -20,3 +20,8 @@ class WallstreetcnItem(scrapy.Item):
     viewNum = scrapy.Field()
     comments = scrapy.Field()
 
+class articlePool(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    title = scrapy.Field()
+    url = scrapy.Field()

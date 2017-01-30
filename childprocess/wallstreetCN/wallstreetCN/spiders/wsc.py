@@ -39,32 +39,38 @@ class WscSpider(scrapy.Spider):
         sel = scrapy.Selector(response)
         #title
         article_title_xpath=".//*[@id='main']/div[1]/div[1]/div[1]/text()"
-        article_title = sel.xpath(article_title_xpath).extract()
+        article_title = sel.xpath(article_title_xpath).extract()[0]
         print(article_title)
         #url
         article_url_xpath=".//*[@id='user-modal']/@data-currenturl"
-        article_url = sel.xpath(article_url_xpath).extract()
+        article_url = sel.xpath(article_url_xpath).extract()[0]
         print(article_url)
         #content
-        article_content_xpath=".//*[@id='main']/div[1]/div[2]/p//text()"
-        article_content = sel.xpath(article_content_xpath).extract()
+        article_content_xpath=".//*[@id='main']/div[1]/div[2]//text()"
+        article_content_raw = sel.xpath(article_content_xpath).extract()
+        article_content_clean = ""
+        for i in range(len(article_content_raw)):
+            if  article_content_raw[i] == "": continue
+            article_content_clean+=article_content_raw[i]
+        article_content =article_content_clean.replace("\n","").replace("\r","")
         print(article_content)
+
         #tag
         article_tag_xpath = ".//*[@id='article-leftbar']/ul/li[1]/div[2]/div//text()"
         article_tag = sel.xpath(article_tag_xpath).extract()
         print(article_tag)
         #poster
         article_poster_xpath = ".//*[@id='article-rightbar']/div[1]/div[1]/div[1]/a[2]/text()"
-        article_poster = sel.xpath(article_poster_xpath).extract()
+        article_poster = sel.xpath(article_poster_xpath).extract()[0]
         print(article_poster)
         article_time_xpath = ".//*[@id='main']/div[1]/div[1]/div[2]/div[1]/text()"
-        article_time = sel.xpath(article_time_xpath).extract()
+        article_time = sel.xpath(article_time_xpath).extract()[1]
         print(article_time)
         article_viewNum_xpath = ".//*[@id='js-article-viewCount']/text()"
-        article_viewNum = sel.xpath(article_viewNum_xpath).extract()
+        article_viewNum = sel.xpath(article_viewNum_xpath).extract()[0]
         print(article_viewNum)
         #comments
-        article_comments_xpath = ".//*[@id='comments']/div/div/div/div/div[2]/p/text()"
+        article_comments_xpath = ".//*[@id='comments']/div/div/div[6]/div/div[2]/p/text()"
         article_comments = sel.xpath(article_comments_xpath).extract()
         print(article_comments)
         storageItem["title"]=article_title
@@ -74,6 +80,8 @@ class WscSpider(scrapy.Spider):
         storageItem["poster"]=article_poster
         storageItem["time"]=article_time
         storageItem["viewNum"]=article_viewNum
+        storageItem["comments"]=article_comments
+        
         return storageItem
         return WallstreetcnItem
             
@@ -92,7 +100,7 @@ class WscSpider(scrapy.Spider):
 
 
     def parse_item(self,url):
-        result = XiciItem()
+        api ='https://api.wallstreetcn.com/v2/pcarticles?page=2&limit=100'
         body = selenium_request(url)
         soup = BeautifulSoup(body, "lxml")
         title = soup.find("h2", id="activity-name").get_text()

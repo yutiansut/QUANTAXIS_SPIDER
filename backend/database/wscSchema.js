@@ -1,13 +1,13 @@
 var mongoose = require('mongoose')
 
 var wscSchema = new mongoose.Schema({
-	title:Array,
-    url:Array,
-    content:Array,
-    poster:Array,
-    viewNum:Array,
-    tag:Array,
-    time:Array
+	title:{type : Array},
+    url:{type : Array},
+    content:{type : Array},
+    poster:{type : Array},
+    viewNum:{type : Array},
+    tag:{type : Array},
+    time:{type : Array}
 })
 
 
