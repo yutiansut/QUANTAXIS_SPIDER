@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "node",
-            "program": "${workspaceRoot}\\bin\\www",
+            "program": "${workspaceRoot}\\backend\\bin\\www",
             "cwd": "${workspaceRoot}"
         },
         {
