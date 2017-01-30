@@ -16,7 +16,23 @@ redis
 
 
 
+===
+后端
+```
+bin/
+childprocess/
+public/
+routes/
+views/
+./app.js
+```
 
+前端
+```
+src/
+./index.html
+./webpack.config.js
+```
 
 ``` bash
 # install dependencies

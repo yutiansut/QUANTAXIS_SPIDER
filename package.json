@@ -8,8 +8,10 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
+  
   "dependencies": {
     "body-parser": "~1.15.2",
+    "child-process": "^1.0.2",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.1",
     "debug": "~2.2.0",
