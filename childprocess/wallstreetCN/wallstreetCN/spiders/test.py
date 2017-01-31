@@ -7,3 +7,4 @@ if count == 0:
 else:
     print 'already in'
 print count
+query.checkDifferentDatabase('title','articles','news_url','url')

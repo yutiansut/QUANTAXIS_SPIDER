@@ -8,10 +8,13 @@ from wallstreetCN.items import WallstreetcnItem,articlePool
 from wallstreetCN.phantomjs import selenium_request
 from scrapy.spiders import Spider  
 from scrapy.selector import Selector  
+import pymongo
+import json
 
 class WscSpider(scrapy.Spider):
     name = "wsc"
     def start_requests(self):
+        
         link = 'http://wallstreetcn.com/news'
         for i in range(1,700):
             api ='https://api.wallstreetcn.com/v2/pcarticles?page=%s&limit=100' %i
@@ -104,6 +107,7 @@ class WscSpider(scrapy.Spider):
                             #yield scrapy.Request(first_url, callback=self.parse)
 
     def parse_json_list(self,response):
+        
         sel = scrapy.Selector(response)
 
         data = json.loads(response.body)
@@ -148,3 +152,26 @@ class WscSpider(scrapy.Spider):
                     print ('articles are already in database')
                     continue
                 continue
+    def get_from_database(self,keyname1,keyname2):
+        client = pymongo.MongoClient(host="127.0.0.1", port=27017)
+        db = client['wsc']
+        coll1 = db['title']
+        coll2 = db['articles']
+        countnum=0
+        for url in coll1.find():
+            urlx=url[keyname1]
+            print col2
+            print keyname1
+            print keyname2
+            print urlx
+            query = querylist()
+            count = query.queryMongodbSame(col2,keyname2,urlx)
+            print count
+            if count == 0:
+                print 'none in the db2'
+                countnum+=1
+                yield scrapy.Request(urlx,self.parse_article)
+            else:
+                print 'already in'
+        print countnum
+    
