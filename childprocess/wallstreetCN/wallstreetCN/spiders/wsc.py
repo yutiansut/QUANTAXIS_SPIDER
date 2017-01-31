@@ -13,7 +13,7 @@ class WscSpider(scrapy.Spider):
     name = "wsc"
     def start_requests(self):
         link = 'http://wallstreetcn.com/news'
-        for i in range(1,2):
+        for i in range(1,700):
             api ='https://api.wallstreetcn.com/v2/pcarticles?page=%s&limit=100' %i
             yield scrapy.Request(api,self.parse_json_list)
         #yield scrapy.Request(link, cookies=self.cookies,headers=self.headers,callback=self.parse_url_list) 
@@ -85,6 +85,7 @@ class WscSpider(scrapy.Spider):
         storageItem["viewNum"]=article_viewNum
         storageItem["comments"]=article_comments
         
+        
         return storageItem
         return WallstreetcnItem
             
@@ -126,5 +127,23 @@ class WscSpider(scrapy.Spider):
                 item["author"] = news_data.get("user", None).get("screenName", None) if news_data.get("user", None) else None
                 yield item
                 yield articlePool
+                countx = query.queryMongodbSame('articles','url',news_url)
+                print 'articles url'
+                print news_url
+                print countx
+                if countx == 0:
+                    yield scrapy.Request(news_url,self.parse_article)
+                else:
+                    print ('articles are already in database')
+                    continue
             else:
+                countx = query.queryMongodbSame('articles','url',news_url)
+                print countx
+                if countx == 0:
+                    print ('artiles will be insert to database')
+                    print news_url
+                    yield scrapy.Request(news_url,self.parse_article)
+                else:
+                    print ('articles are already in database')
+                    continue
                 continue
