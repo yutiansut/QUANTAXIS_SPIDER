@@ -38,6 +38,7 @@ class WscSpider(scrapy.Spider):
         #content = selenium_request(article_url_list)
         #print(content)
     def parse_article(self, response):
+        print ('start crawling articles')
         storageItem=WallstreetcnItem()
         sel = scrapy.Selector(response)
         #title
