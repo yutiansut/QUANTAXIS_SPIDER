@@ -2,28 +2,28 @@ import pymongo
 import datetime
 
 
-def get_db():
+def get_db(dbname):
     # 建立连接
     client = pymongo.MongoClient(host="127.0.0.1", port=27017)
-    db = client['wsc']
+    db = client[dbname]
     print 'connent to pymongo'
     #或者 db = client.example
     return db
 
 
-def get_collection(db):
+def get_collection(dbcoll):
     # 选择集合（mongo中collection和database都是延时创建的）
-    coll = db['title']
+    coll = db[dbcoll]
     print db.collection_names()
     return coll
 
 
-#def insert_one_doc(db):
-    # 插入一个document
-    #coll = db['title']
-    #information = {"name": "quyang", "age": "25"}
-    #information_id = coll.insert(information)
-    #print information_id
+def insert_one_doc(db):
+     #插入一个document
+    coll = db['title']
+    information = {"name": "quyang", "age": "25"}
+    information_id = coll.insert(information)
+    print information_id
 
 
 #def insert_multi_docs(db):

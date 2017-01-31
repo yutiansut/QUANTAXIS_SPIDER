@@ -3,19 +3,17 @@
 import scrapy
 import re
 import json
-import pymongo
+from mongodbQuery import querylist
 from wallstreetCN.items import WallstreetcnItem,articlePool
 from wallstreetCN.phantomjs import selenium_request
 from scrapy.spiders import Spider  
 from scrapy.selector import Selector  
-import db.py
 
 class WscSpider(scrapy.Spider):
     name = "wsc"
-    
     def start_requests(self):
         link = 'http://wallstreetcn.com/news'
-        for i in range(1,700):
+        for i in range(1,2):
             api ='https://api.wallstreetcn.com/v2/pcarticles?page=%s&limit=100' %i
             yield scrapy.Request(api,self.parse_json_list)
         #yield scrapy.Request(link, cookies=self.cookies,headers=self.headers,callback=self.parse_url_list) 
@@ -113,14 +111,20 @@ class WscSpider(scrapy.Spider):
         for news in news_list:
             item = articlePool()
             news_data = news.get("resource",None)
-            item["title"]=news_data.get("title", None)
-            item["comment_num"]=news_data.get("commentCount", None)
-            item["pic"]=news_data.get("imageUrl", None)
-            item["news_no"]=news_data.get("id", None)
-            item["title"]=news_data.get("title", None)
             news_url = news_data.get("url", None)
-            item["news_url"] = news_url
-            item["abstract"] = news_data.get("summary", None)
-            item["author"] = news_data.get("user", None).get("screenName", None) if news_data.get("user", None) else None
-            yield item
-            yield articlePool
+            query = querylist()
+            count =query.queryMongodbSame('title','news_url',news_url)
+            print count
+            if count == 0:
+                item["title"]=news_data.get("title", None)
+                item["comment_num"]=news_data.get("commentCount", None)
+                item["pic"]=news_data.get("imageUrl", None)
+                item["news_no"]=news_data.get("id", None)
+                item["title"]=news_data.get("title", None)
+                item["news_url"] = news_url
+                item["abstract"] = news_data.get("summary", None)
+                item["author"] = news_data.get("user", None).get("screenName", None) if news_data.get("user", None) else None
+                yield item
+                yield articlePool
+            else:
+                continue
