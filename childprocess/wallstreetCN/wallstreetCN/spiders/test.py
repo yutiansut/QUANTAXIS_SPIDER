@@ -1,4 +1,5 @@
 from mongodbQuery import querylist
+import multiprocessing
 query=querylist()
 new_url = 'http://wallstreetcn.com/node/287070'
 count = query.queryMongodbSame('title','news_url',new_url)
@@ -7,4 +8,5 @@ if count == 0:
 else:
     print 'already in'
 print count
-query.checkDifferentDatabase('title','articles','news_url','url')
+#query.checkDifferentDatabase('title','articles','news_url','url',0)
+query.checkDifferentDatabase('articles','articles','url','url',1)

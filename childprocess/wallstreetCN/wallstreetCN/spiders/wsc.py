@@ -9,16 +9,38 @@ from wallstreetCN.phantomjs import selenium_request
 from scrapy.spiders import Spider  
 from scrapy.selector import Selector  
 import pymongo
-import json
 
 class WscSpider(scrapy.Spider):
     name = "wsc"
     def start_requests(self):
-        
-        link = 'http://wallstreetcn.com/news'
-        for i in range(1,700):
-            api ='https://api.wallstreetcn.com/v2/pcarticles?page=%s&limit=100' %i
-            yield scrapy.Request(api,self.parse_json_list)
+     #   models = imput("models:")
+     #   if models ==1:
+     #       link = 'http://wallstreetcn.com/news'
+     #       yield scrapy.Request(link,self.parse_url_list)
+     #   elif models ==2:
+     #       for i in range(1,700):
+     #           api ='https://api.wallstreetcn.com/v2/pcarticles?page=%s&limit=100' %i
+     #       yield scrapy.Request(api,self.parse_json_list)
+     #   elif models == 3:
+        client = pymongo.MongoClient(host="127.0.0.1", port=27017)
+        db = client['wsc']
+        coll1 = db['title']
+        coll2 = db['articles']
+        countnum=0
+        for url in coll1.find():
+            urlx=url['news_url']
+            query = querylist()
+            count = query.queryMongodbSame('articles','url',urlx)
+            print count
+            if count == 0:
+                print 'none in the second database'
+                countnum+=1
+                print countnum
+                yield scrapy.Request(urlx,self.parse_article)
+            else:
+                print 'already in'
+                continue
+        print countnum
         #yield scrapy.Request(link, cookies=self.cookies,headers=self.headers,callback=self.parse_url_list) 
        # yield scrapy.Request(link,self.parse_url_list)
 
@@ -59,7 +81,7 @@ class WscSpider(scrapy.Spider):
         for i in range(len(article_content_raw)):
             if  article_content_raw[i] == "": continue
             article_content_clean+=article_content_raw[i]
-        article_content =article_content_clean.replace("\n","").replace("\r","")
+        article_content =article_content_clean.replace(u"\u2022","").replace(u"\xa0","").replace("\n","").replace("\r","")
         print(article_content)
 
         #tag
@@ -152,22 +174,3 @@ class WscSpider(scrapy.Spider):
                     print ('articles are already in database')
                     continue
                 continue
-    def get_from_database(self,keyname1,keyname2):
-        client = pymongo.MongoClient(host="127.0.0.1", port=27017)
-        db = client['wsc']
-        coll1 = db['title']
-        coll2 = db['articles']
-        countnum=0
-        for url in coll1.find():
-            urlx=url[keyname1]
-            query = querylist()
-            count = query.queryMongodbSame(col2,keyname2,urlx)
-            print count
-            if count == 0:
-                print 'none in the second database'
-                countnum+=1
-                yield scrapy.Request(urlx,self.parse_article)
-            else:
-                print 'already in'
-        print countnum
-    

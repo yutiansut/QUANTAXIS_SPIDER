@@ -1,5 +1,6 @@
 import pymongo
 import json
+import multiprocessing
 
 class querylist(object):
     client = pymongo.MongoClient(host="127.0.0.1", port=27017)
@@ -11,7 +12,7 @@ class querylist(object):
         coll = db[collname]
         count = coll.find({keyname:keycontent}).count()
         return count
-    def checkDifferentDatabase(self,col1,col2,keyname1,keyname2):
+    def checkDifferentDatabase(self,col1,col2,keyname1,keyname2,x):
         client = pymongo.MongoClient(host="127.0.0.1", port=27017)
         db = client['wsc']
         coll1 = db[col1]
@@ -24,13 +25,13 @@ class querylist(object):
             print urlx
             count = self.queryMongodbSame(col2,keyname2,urlx)
             print count
-            if count == 0:
+            if count == x:
                 print 'none in the db2'
                 countnum+=1
             else:
                 print 'already in'
         print countnum
-
+    
 
 
 
