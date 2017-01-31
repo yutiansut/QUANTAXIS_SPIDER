@@ -160,15 +160,11 @@ class WscSpider(scrapy.Spider):
         countnum=0
         for url in coll1.find():
             urlx=url[keyname1]
-            print col2
-            print keyname1
-            print keyname2
-            print urlx
             query = querylist()
             count = query.queryMongodbSame(col2,keyname2,urlx)
             print count
             if count == 0:
-                print 'none in the db2'
+                print 'none in the second database'
                 countnum+=1
                 yield scrapy.Request(urlx,self.parse_article)
             else:
