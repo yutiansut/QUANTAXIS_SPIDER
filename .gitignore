@@ -3,3 +3,4 @@ node_modules/
 *.pyc
 quantaxisback/
 *.7z
+.idea/
