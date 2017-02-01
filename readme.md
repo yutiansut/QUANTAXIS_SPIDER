@@ -3,8 +3,8 @@
 -----------
 ![build](https://img.shields.io/badge/Build-passing-green.svg)
 ![author](https://img.shields.io/badge/Powered%20by-%20%20yutiansut-red.svg)
-![language](https://img.shields.io/badge/%20%20%20Language%20%20%20-%20%20%20Python%2FJavaScripts%20%20-lightgrey.svg)
 ![license](https://img.shields.io/badge/License-%20MIT-brightgreen.svg)
+![language](https://img.shields.io/badge/%20%20%20Language%20%20%20-%20%20%20Python%2FJavaScripts%20%20-lightgrey.svg)
 -------------
 ## Stack
 ```
