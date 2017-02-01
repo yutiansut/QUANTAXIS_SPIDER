@@ -1,6 +1,5 @@
 # QUANTAXIS_SPIDER 可视化爬虫
-<h2> QUANTAXIS 3.5 重构版本的爬虫部分
------------
+QUANTAXIS 3.5 重构版本的爬虫部分
 ![build](https://img.shields.io/badge/Build-passing-green.svg)
 ![author](https://img.shields.io/badge/Powered%20by-%20%20yutiansut-red.svg)
 ![license](https://img.shields.io/badge/License-%20MIT-brightgreen.svg)
@@ -32,6 +31,15 @@ cd ../childprocess
 python -m pip install -r requirements.txt
 ```
 * 安装mongodb-启动Mongo服务
+```
+windows
+linux
+```
+
+## Features
+
+## Todolists
+
 
 ### 技术栈
 ![技术栈](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-visualCraw/todo.png)
