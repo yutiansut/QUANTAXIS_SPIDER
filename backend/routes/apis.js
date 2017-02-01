@@ -29,7 +29,7 @@ router.get('/queryContentbyName', function(req, res, next) {
          })
         })
     })
-});
+}); 
 router.get('/queryTitlebyName', function(req, res, next) {
     console.log('get data');
     console.log(req.query.name);
@@ -41,8 +41,13 @@ router.get('/queryTitlebyName', function(req, res, next) {
     mongodb.connect('mongodb://localhost:27017/wsc', function(err, conn){
          conn.collection('articles', function(err, coll){ 
               coll.find({'title':name}).toArray(function(err,docs){
-                  console.log(docs)
-                  res.json(docs)
+                  var len=docs.length
+                  console.log(len)
+                  var result=[];
+                  for(i=0;i<len;i++){
+                      result[i]=(docs[i].title)
+                  }
+                  res.send(result)
          })
         })
     })

@@ -25,9 +25,9 @@ git clone https://github.com/yutiansut/QUANTAXIS_SPIDER.git
 cd QUANTAXIS_SPIDER
 cd backend
 npm install
-cd ../frontend
+cd ../frontend/quantaxisSpider
 npm install
-cd ../childprocess
+cd ../../childprocess
 python -m pip install -r requirements.txt
 ```
 * 安装mongodb-启动Mongo服务
