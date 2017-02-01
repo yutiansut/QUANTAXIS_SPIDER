@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+    <h2>QUANTAXIS量化工具箱爬虫部分</h2>
   </div>
 </template>
 
@@ -11,7 +10,7 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'QUANTAXIS_Spider 可视化爬虫'
     }
   }
 }
