@@ -1,6 +1,6 @@
 import pymongo
 import json
-import multiprocessing
+
 
 class querylist(object):
     client = pymongo.MongoClient(host="127.0.0.1", port=27017)
@@ -20,20 +20,20 @@ class querylist(object):
         countnum=0
         for url in coll1.find():
             urlx=url[keyname1]
-            print col2
-            print keyname1
-            print urlx
+            print (col2)
+            print (keyname1)
+            print (urlx)
             count = self.queryMongodbSame(col2,keyname2,urlx)
-            print count
+            print (count)
             if count == x:
-                print 'none in the db2'
-                print countnum
+                print ('none in the db2')
+                print (countnum)
             else:
-                print 'already in'
+                print ('already in')
                 continue
                 countnum+=1
-                print countnum
-        print countnum
+                print (countnum)
+        print (countnum)
     
 
 

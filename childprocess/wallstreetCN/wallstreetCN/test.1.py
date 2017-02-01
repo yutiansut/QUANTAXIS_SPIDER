@@ -10,4 +10,4 @@ else:
     print 'already in'
 print count
 #query.checkDifferentDatabase('title','articles','news_url','url',0)
-query.checkDifferentDatabase('articles','articles','url','url',1)
+#query.checkDifferentDatabase('articles','articles','url','url',1)
