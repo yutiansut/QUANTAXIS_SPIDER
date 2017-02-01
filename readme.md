@@ -13,8 +13,8 @@ mongodb
 redis
 ```
 ## Usage
-安装python,nodejs,python-pip
-安装Quantaxis_Spider
+* 安装python,nodejs,python-pip
+* 安装Quantaxis_Spider
 ```
 git clone https://github.com/yutiansut/QUANTAXIS_SPIDER.git
 cd QUANTAXIS_SPIDER
@@ -25,8 +25,7 @@ npm install
 cd ../childprocess
 python -m pip install -r requirements.txt
 ```
-安装mongodb
-启动Mongo服务
+* 安装mongodb-启动Mongo服务
 
 ### 技术栈
 ![技术栈](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-visualCraw/todo.png)
