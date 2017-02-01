@@ -1,5 +1,6 @@
 from mongodbQuery import querylist
 import multiprocessing
+import threading
 query=querylist()
 new_url = 'http://wallstreetcn.com/node/287070'
 count = query.queryMongodbSame('title','news_url',new_url)

@@ -27,9 +27,12 @@ class querylist(object):
             print count
             if count == x:
                 print 'none in the db2'
-                countnum+=1
+                print countnum
             else:
                 print 'already in'
+                continue
+                countnum+=1
+                print countnum
         print countnum
     
 
