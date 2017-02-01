@@ -1,12 +1,11 @@
 # coding: utf-8
 from os import path
 import numpy as np
-import pymongo
 import matplotlib.pyplot as plt
 # matplotlib.use('qt4agg')
 from wordcloud import WordCloud, STOPWORDS
 import jieba
-
+import pymongo
 
 class WordCloud_CN:
     '''
@@ -16,7 +15,7 @@ class WordCloud_CN:
 
     def __init__(self, stopwords_file):
         self.stopwords_file = stopwords_file
-        self.text_file = text_file
+        self.text= text
 
     @property
     def get_stopwords(self):
@@ -32,15 +31,12 @@ class WordCloud_CN:
 
     @property
     def seg_text(self):
-        with open(self.text_file) as f:
-            text = f.readlines()
-            text = r' '.join(text)
-
-            seg_generator = jieba.cut(text)
-            self.seg_list = [
-                i for i in seg_generator if i not in self.get_stopwords]
-            self.seg_list = [i for i in self.seg_list if i != u' ']
-            self.seg_list = r' '.join(self.seg_list)
+      
+        seg_generator = jieba.cut(text)
+        self.seg_list = [
+            i for i in seg_generator if i not in self.get_stopwords]
+        self.seg_list = [i for i in self.seg_list if i != u' ']
+        self.seg_list = r' '.join(self.seg_list)
         return self.seg_list
 
     def show(self):
@@ -63,8 +59,7 @@ if __name__ == '__main__':
     strings =""
     for content in coll.find({"poster":"王维丹"}):
         urlx=content['content']
-        strings=strings+url     
-    text_file = strings
-
+        strings=strings+urlx     
+    text= strings
     generater = WordCloud_CN(stopwords_file)
     generater.show()
