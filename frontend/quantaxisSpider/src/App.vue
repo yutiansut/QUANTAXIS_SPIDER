@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <Bar></Bar>
+    <div id="bar">
+      <Bar></Bar>
+    </div>
+    
     <slides></slides>
     <h1>{{ msg }}</h1>
     <h2>QUANTAXIS量化工具箱爬虫部分</h2>
@@ -40,18 +43,8 @@ export default {
 h1, h2 {
   font-weight: normal;
 }
-
-ul {
-  list-style-type: none;
-  padding: 0;
+#bar {
+  color: grey
 }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
