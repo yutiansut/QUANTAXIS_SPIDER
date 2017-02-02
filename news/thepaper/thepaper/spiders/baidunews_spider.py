@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-__author__ = 'youmi'
-
 import scrapy
 from bs4 import BeautifulSoup
 import logging
