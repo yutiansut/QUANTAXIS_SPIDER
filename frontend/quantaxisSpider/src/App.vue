@@ -1,16 +1,20 @@
 <template>
   <div id="app">
+    <Bar></Bar>
+    <slides></slides>
     <h1>{{ msg }}</h1>
     <h2>QUANTAXIS量化工具箱爬虫部分</h2>
-    <logo></logo>
+   
   </div>
 </template>
 
 <script>
-import logo from './components/logo.vue';
+import Slides from './components/Slides.vue';
+import Bar from './components/Bar.vue';
+
 export default {
   name: 'app',
-  components : {logo},
+  components : {Slides,Bar},
   data () {
     //Vue 实例的数据对象。
     //Vue 将会递归将 data 的属性转换为 getter/setter，从而让 data 的属性能够响应数据变化。
