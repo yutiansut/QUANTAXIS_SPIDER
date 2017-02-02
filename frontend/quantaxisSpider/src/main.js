@@ -1,6 +1,13 @@
 import Vue from 'vue'
+import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
+
 import App from './App.vue'
 import Bar from './components/Bar.vue'
+
+Vue.use(VueRouter)
+Vue.use(VueResource)
+
 Vue.config.devtools = true;
 new Vue({
   el: '#app',  // el为实例提供挂载元素,值可以是css选择符,或者实际的html元素,或返回html元素的函数
