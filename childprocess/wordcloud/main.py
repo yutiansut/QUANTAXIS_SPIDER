@@ -15,7 +15,7 @@ class WordCloud_CN:
 
     def __init__(self, stopwords_file):
         self.stopwords_file = stopwords_file
-        self.text= text
+        self.text=text
 
     @property
     def get_stopwords(self):
@@ -31,8 +31,7 @@ class WordCloud_CN:
 
     @property
     def seg_text(self):
-      
-        seg_generator = jieba.cut(text)
+        seg_generator = jieba.cut(self.text)
         self.seg_list = [
             i for i in seg_generator if i not in self.get_stopwords]
         self.seg_list = [i for i in self.seg_list if i != u' ']
@@ -45,7 +44,8 @@ class WordCloud_CN:
                               background_color="black", margin=5, width=1800, height=800)
 
         wordcloud = wordcloud.generate(self.seg_text)
-
+        print wordcloud
+        print self.seg_text
         plt.figure()
         plt.imshow(wordcloud)
         plt.axis("off")
@@ -63,3 +63,4 @@ if __name__ == '__main__':
     text= strings
     generater = WordCloud_CN(stopwords_file)
     generater.show()
+

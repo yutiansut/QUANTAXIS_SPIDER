@@ -9,10 +9,14 @@
 export default {
   name: 'app',
   data () {
+    //Vue 实例的数据对象。
+    //Vue 将会递归将 data 的属性转换为 getter/setter，从而让 data 的属性能够响应数据变化。
+    //对象必须是纯粹的对象(含有零个或多个的key/value对)
     return {
-      msg: 'QUANTAXIS_Spider 可视化爬虫'
+      msg: 'QUANTAXIS_Spider 可视化爬虫' //键值对
     }
   }
+  //vm
 }
 </script>
 
