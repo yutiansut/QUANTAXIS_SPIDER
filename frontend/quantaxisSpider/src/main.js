@@ -4,6 +4,7 @@ import VueResource from 'vue-resource'
 
 import App from './App.vue'
 import Bar from './components/Bar.vue'
+import Slides from './components/Slides.vue'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -11,11 +12,15 @@ Vue.use(VueResource)
 Vue.config.devtools = true;
 const routes = [{
   path : '/',
-  component : Home
+  component : Slides
 },{
-  path : '/home',
-  component : Home
+  path : '/slides',
+  component : Slides
+},{
+  path : '/bar',
+  component : Bar
 }];
+
 
 const router = new VueRouter({
   routes

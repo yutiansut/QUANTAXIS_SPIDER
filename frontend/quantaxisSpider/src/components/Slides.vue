@@ -1,11 +1,14 @@
 <template>
     <div>
         <ul>
-            <li>这里是引入的子组件Component</li>
+            <li>简单的router实例</li>
         </ul>
     </div>
 </template>
+
 <script>
-    export default{}
+    export default{
+        name: 'slides'
+    }
 </script>
     
