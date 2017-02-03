@@ -1,38 +1,51 @@
 <template>
 
 <div class="demo-step-container">
-    <h1>Welcome to Quantaxis</h1>
-    <h2>Only Three Steps</h2>
-    <mu-stepper :activeStep="activeStep">
-    <mu-step>
-        <mu-step-label>
-        下载QUANTAXIS.Spider
-        </mu-step-label>
-    </mu-step>
-    <mu-step>
-        <mu-step-label>
-        一键安装
-        </mu-step-label>
-    </mu-step>
-    <mu-step>
-        <mu-step-label>
-        部署
-        </mu-step-label>
-    </mu-step>
+    <div id="title">
+        <h1>#Start</h1>
+        <h2>Only Three Steps,Start your QA.Spider</h2>
+    </div>
+    <div id="content">
+    <mu-stepper :activeStep="activeStep" orientation="vertical">
+        <mu-step>
+            <mu-step-label>
+                下载|Download
+            </mu-step-label>
+            <mu-step-content>
+                <p>
+                    Github fork & clone
+                </p>
+                <mu-raised-button label="NEXT" class="demo-step-button" @click="handleNext" primary/>
+            </mu-step-content>
+        </mu-step>
+        <mu-step>
+            <mu-step-label>
+                安装依赖项|Install Dependences
+            </mu-step-label>
+            <mu-step-content>
+                <p>
+                    npm install & python -m pip install
+                </p>
+                <mu-raised-button label="NEXT" class="demo-step-button" @click="handleNext" primary/>
+                <mu-flat-button label="BACK" class="demo-step-button" @click="handlePrev" />
+            </mu-step-content>
+        </mu-step>
+        <mu-step>
+            <mu-step-label>
+                启动爬虫和可视化网站|Start Journey
+            </mu-step-label>
+            <mu-step-content>
+                <p>
+                    npm run dev & scrapy crawl xxx
+                </p>
+                <mu-raised-button label="Finish" class="demo-step-button" @click="handleNext" primary/>
+                <mu-flat-button label="BACK" class="demo-step-button" @click="handlePrev" />
+            </mu-step-content>
+        </mu-step>
     </mu-stepper>
-    <div class="demo-step-content">
     <p v-if="finished">
-        都完成啦!<a href="javascript:;" @click="reset">点这里</a>可以重置
+        都完成啦!<a href="javascript:;" @click="reset">点这里</a>访问教程
     </p>
-    <template v-if="!finished">
-        <p>
-        {{content}}
-        </p>
-        <div>
-        <mu-flat-button class="demo-step-button" label="BACK" :disabled="activeStep === 0" @click="handlePrev"/>
-        <mu-raised-button class="demo-step-button" :label="activeStep === 2 ? 'FINISH' : 'NEXT'" primary @click="handleNext"/>
-        </div>
-    </template>
     </div>
 </div>
 </template>
@@ -83,21 +96,47 @@ export default {
 </script>
 
 <style>
-h1{
-    color: darkgrey;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 .demo-step-container {
-  width: 100%;
-  max-width: 700px;
-  margin: auto;
+    position:relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+#title{
+    position:relative;
+    width:60%;
+    height:100%;
+    float: left;
+    display: inline-block;
+    margin: 10% 0%;
 }
 
-.demo-step-content {
+#content{
+    width:30%;
+    height:100%;
+    position:relative;
+    float: left;
+    display: inline-block;
+    margin: 15% 0%;
+}
+
+#title h1{
+    color: darkgrey;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 85px;
+}
+
+#title h2{
+    color: darkgrey;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+
+}
+#content.demo-step-content {
   margin: 0  16px;
 }
 
-.demo-step-button {
+#content.demo-step-button {
   margin-top: 12px;
   margin-right: 12px;
 }

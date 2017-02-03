@@ -1,13 +1,13 @@
 <template>
   <div id="app">
   <mu-appbar title="Title">
-    <mu-text-field icon="search" class="appbar-search-field"  slot="right" hintText="请输入搜索内容"/>
+    <mu-text-field  class="appbar-search-field"  slot="right" hintText="请输入搜索内容"/>
     <mu-flat-button color="white" label="flat Button" slot="right"/>  
-    <mu-icon-button icon="close" slot="left"/>
+    <mu-icon-button label="QUANTAXIS_SPIDER" slot="left"/>
     <mu-icon-menu icon="more_vert" slot="right">
-      <router-link to='/slides'><mu-menu-item title="菜单 1" ></mu-menu-item></router-link>
-      <router-link to='/bar'><mu-menu-item title="菜单 2"/></router-link>
-      <mu-menu-item title="菜单 3"/>
+      <router-link to='/slides'><mu-menu-item title="SLIDES" ></mu-menu-item></router-link>
+      <router-link to='/bar'><mu-menu-item title="BAR"/></router-link>
+      <router-link to='/process'><mu-menu-item title="PROGRESS"/></router-link>
       <mu-menu-item title="菜单 4"/>
       <mu-menu-item title="菜单 5"/>
     </mu-icon-menu>

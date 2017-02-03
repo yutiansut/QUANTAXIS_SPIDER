@@ -8,6 +8,11 @@ module.exports = {
     publicPath: '/dist/',
     filename: 'build.js'
   },
+  vue: {
+    loaders: {
+      css: 'vue-style-loader!css-loader'
+    },
+  },
   module: {
     loaders: [
       {
