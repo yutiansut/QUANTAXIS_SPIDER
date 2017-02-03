@@ -3,14 +3,17 @@
   <mu-appbar title="Title">
     <mu-text-field  class="appbar-search-field"  slot="right" hintText="请输入搜索内容"/>
     <mu-flat-button color="white" label="flat Button" slot="right"/>  
-    <mu-icon-button label="QUANTAXIS_SPIDER" slot="left"/>
-    <mu-icon-menu icon="more_vert" slot="right">
-      <router-link to='/slides'><mu-menu-item title="SLIDES" ></mu-menu-item></router-link>
-      <router-link to='/bar'><mu-menu-item title="BAR"/></router-link>
-      <router-link to='/process'><mu-menu-item title="PROGRESS"/></router-link>
-      <mu-menu-item title="菜单 4"/>
-      <mu-menu-item title="菜单 5"/>
-    </mu-icon-menu>
+    <mu-icon-button color="white" label="QUANTAXIS_SPIDER" slot="left"/>
+    <mu-raised-button label="More" @click="toggle()"/>
+    <mu-drawer right :open="open" @close="toggle()">
+      <mu-appbar title="View"/>
+      <mu-list>
+        <router-link to='/slides'><mu-list-item title="SLIDES"/></router-link>
+        <router-link to='/process'><mu-list-item title="START"/></router-link>
+        <router-link to='/bar'><mu-list-item title="PERSONAL"/></router-link>
+        <mu-list-item @click.native="open = false" title="Close"/>
+      </mu-list>
+    </mu-drawer>
   </mu-appbar>
     <div class="container">
       <router-view></router-view>
@@ -25,6 +28,16 @@ export default {
   name: 'app',
   components: {
     'mobile-tear-sheet': mobileTearSheet
+  },
+   data () {
+    return {
+      open: false
+    }
+  },
+  methods: {
+    toggle () {
+      this.open = !this.open
+    }
   }
   //vm
 }
@@ -56,5 +69,9 @@ h1, h2 {
   .mu-text-field-focus-line {
     background-color: #FFF;
   }
+}
+
+.mu-raised-button{
+  color:#2c3e50
 }
 </style>
