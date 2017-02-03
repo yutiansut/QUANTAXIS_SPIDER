@@ -44,6 +44,8 @@ linux
 
 ### 技术栈
 ![技术栈](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-visualCraw/todo.png)
+### Start页面
+![Start页面](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-front/pic/start.gif)
 ### 前端设计
 ![前端设计](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-front/pic/HomePage-design.png)
 ### 爬取到的数据
