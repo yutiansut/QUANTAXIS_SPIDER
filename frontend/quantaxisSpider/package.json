@@ -11,8 +11,12 @@
   "dependencies": {
     "axios": "^0.15.3",
     "bootstrap": "^3.3.7",
+    "element-ui": "^1.1.6",
     "keycode": "^2.1.8",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
     "muse-ui": "^2.0.0-rc.5",
+    "style-loader": "^0.13.1",
     "vue": "^2.1.0",
     "vue-resource": "^1.1.2",
     "vue-router": "^2.2.0",

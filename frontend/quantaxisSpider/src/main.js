@@ -5,20 +5,28 @@ import VueResource from 'vue-resource'
 import App from './App.vue'
 import Bar from './components/Bar.vue'
 import Slides from './components/Slides.vue'
+import process from './components/process.vue'
 
+import MuseUI from 'muse-ui'
+import 'muse-ui/dist/muse-ui.css'
+import 'muse-ui/dist/theme-carbon.css'
 Vue.use(VueRouter)
 Vue.use(VueResource)
+Vue.use(MuseUI)
 
 Vue.config.devtools = true;
 const routes = [{
   path : '/',
-  component : Slides
+  component : process
 },{
   path : '/slides',
   component : Slides
 },{
   path : '/bar',
   component : Bar
+},{
+  path : '/process',
+  component : process
 }];
 
 
