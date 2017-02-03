@@ -9,7 +9,7 @@ import process from './components/process.vue'
 
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
-import 'muse-ui/dist/theme-carbon.css'
+import './assets/theme-carbon.css'
 Vue.use(VueRouter)
 Vue.use(VueResource)
 Vue.use(MuseUI)

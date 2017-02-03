@@ -72,6 +72,10 @@ h1, h2 {
 }
 
 .mu-raised-button{
-  color:#2c3e50
+  background-color: red;
+  color:#FFF;
+  }
+button.mu-raised-button.hover{
+  color:#000000;
 }
 </style>
