@@ -1,9 +1,15 @@
 <template>
     <div id="title">
         <h1>#QUANTAXIS</h1>
-        <h2>Visualization Spider Components by yutiansut</h2>
+        <h2>Visualization Spider Components by yutiansut</h2>   
     </div>
 </template>
+<script> 
+
+export default{
+    name:"home"
+}
+</script>    
 <style>
     #title{
     position:relative;

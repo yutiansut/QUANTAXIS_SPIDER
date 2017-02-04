@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 import App from './App.vue'
 import Bar from './components/Bar.vue'
@@ -10,9 +11,11 @@ import Start from './components/Start.vue'
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
 import './assets/theme-carbon.css'
+
 Vue.use(VueRouter)
 Vue.use(VueResource)
 Vue.use(MuseUI)
+Vue.use(VueAwesomeSwiper)
 
 Vue.config.devtools = true;
 const routes = [{
