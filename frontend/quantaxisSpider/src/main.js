@@ -4,8 +4,8 @@ import VueResource from 'vue-resource'
 
 import App from './App.vue'
 import Bar from './components/Bar.vue'
-import Slides from './components/Slides.vue'
-import process from './components/process.vue'
+import HomePage from './components/HomePage.vue'
+import Start from './components/Start.vue'
 
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
@@ -17,16 +17,16 @@ Vue.use(MuseUI)
 Vue.config.devtools = true;
 const routes = [{
   path : '/',
-  component : process
+  component : HomePage
 },{
-  path : '/slides',
-  component : Slides
+  path : '/home',
+  component : HomePage
 },{
   path : '/bar',
   component : Bar
 },{
-  path : '/process',
-  component : process
+  path : '/start',
+  component : Start
 }];
 
 
