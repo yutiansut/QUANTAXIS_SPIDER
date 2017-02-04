@@ -30,6 +30,15 @@ const routes = [{
 },{
   path : '/start',
   component : Start
+},{
+  path : '/user',
+  component : Start,
+  children:[
+    {
+      path:'#/id',
+      component:HomePage
+    }
+  ]
 }];
 
 
