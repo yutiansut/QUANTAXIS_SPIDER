@@ -4,7 +4,7 @@ import VueResource from 'vue-resource'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 import App from './App.vue'
-import Bar from './components/Bar.vue'
+import Todo from './components/todo.vue'
 import HomePage from './components/HomePage.vue'
 import Start from './components/Start.vue'
 
@@ -25,8 +25,8 @@ const routes = [{
   path : '/home',
   component : HomePage
 },{
-  path : '/bar',
-  component : Bar
+  path : '/todo',
+  component : Todo
 },{
   path : '/start',
   component : Start

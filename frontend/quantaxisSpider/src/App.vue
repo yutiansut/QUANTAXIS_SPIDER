@@ -11,7 +11,7 @@
       <mu-list>
         <router-link to='/home'><mu-list-item title="HOME"/></router-link>
         <router-link to='/start'><mu-list-item title="START"/></router-link>
-        <router-link to='/bar'><mu-list-item title="PERSONAL"/></router-link>
+        <router-link to='/todo'><mu-list-item title="TODO"/></router-link>
         <mu-list-item @click.native="open = false" title="Close"/>
       </mu-list>
     </mu-drawer>
