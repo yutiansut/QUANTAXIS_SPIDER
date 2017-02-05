@@ -5,7 +5,7 @@ require('mongoose');
 var mongodb=require('mongodb');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('apis/index', { title: 'APIS' });
 }); 
 
 router.get('/json', function(req, res, next) {

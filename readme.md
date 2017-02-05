@@ -40,7 +40,11 @@ linux
 ## Features
 
 ## Todolists
+### 热刷新问题
+ajax去请求数据异步刷新模块这些没问题,下一步是反向注入json任务给运行中的python和matlab核心去做热刷新
+在前端和爬虫和分析核中间也构建一个MVVM
 
+### 一键部署/安装  使用powershell
 
 ### 技术栈
 ![技术栈](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-visualCraw/todo.png)
