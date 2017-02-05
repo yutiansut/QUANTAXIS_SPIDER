@@ -18,29 +18,11 @@ class WscSpider(scrapy.Spider):
      #       link = 'http://wallstreetcn.com/news'
      #       yield scrapy.Request(link,self.parse_url_list)
      #   elif models ==2:
-     #       for i in range(1,700):
-     #           api ='https://api.wallstreetcn.com/v2/pcarticles?page=%s&limit=100' %i
-     #       yield scrapy.Request(api,self.parse_json_list)
+        for i in range(1,5):
+            api ='https://api.wallstreetcn.com/v2/pcarticles?page=%s&limit=100' %i
+            yield scrapy.Request(api,self.parse_json_list)
      #   elif models == 3:
-        client = pymongo.MongoClient(host="127.0.0.1", port=27017)
-        db = client['wsc']
-        coll1 = db['title']
-        coll2 = db['articles']
-        countnum=0
-        for url in coll1.find():
-            urlx=url['news_url']
-            query = querylist()
-            count = query.queryMongodbSame('articles','url',urlx)
-            print count
-            if count == 0:
-                print 'none in the second database'
-                countnum+=1
-                print countnum
-                yield scrapy.Request(urlx,self.parse_article)
-            else:
-                print 'already in'
-                continue
-        print countnum
+    
         #yield scrapy.Request(link, cookies=self.cookies,headers=self.headers,callback=self.parse_url_list) 
        # yield scrapy.Request(link,self.parse_url_list)
 
