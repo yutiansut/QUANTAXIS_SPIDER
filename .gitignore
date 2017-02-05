@@ -4,3 +4,4 @@ node_modules/
 quantaxisback/
 *.7z
 .idea/
+*.log
