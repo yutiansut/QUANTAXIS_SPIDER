@@ -1,10 +1,13 @@
 # QUANTAXIS_SPIDER 爬虫
 ###[QUANTAXIS 3.6](https://github.com/yutiansut/QUANTAXIS) 重构版本的爬虫部分
+
+
 ![build](https://img.shields.io/badge/Build-passing-green.svg)
 ![author](https://img.shields.io/badge/Powered%20by-%20%20yutiansut-red.svg)
 ![license](https://img.shields.io/badge/License-%20MIT-brightgreen.svg)
 
-
+[QUANTAXIS_VISUALIZATION](https://github.com/yutiansut/QUANTAXIS_VISUALIZATION)
+[QUANTAXIS](https://github.com/yutiansut/QUANTAXIS)
 ## 功能剥离与逻辑优化
 
 ### 功能剥离(我们为什么要把可视化部分剥离)
