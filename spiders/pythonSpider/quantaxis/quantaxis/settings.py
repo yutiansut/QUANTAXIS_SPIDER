@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for wallstreetCN project
+# Scrapy settings for quantaxis project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,17 +9,17 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'wallstreetCN'
+BOT_NAME = 'quantaxis'
 
-SPIDER_MODULES = ['wallstreetCN.spiders']
-NEWSPIDER_MODULE = 'wallstreetCN.spiders'
+SPIDER_MODULES = ['quantaxis.spiders']
+NEWSPIDER_MODULE = 'quantaxis.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'wallstreetCN (+http://www.yourdomain.com)'
+#USER_AGENT = 'quantaxis (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = False
+ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'wallstreetCN.middlewares.WallstreetcnSpiderMiddleware': 543,
+#    'quantaxis.middlewares.QuantaxisSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'wallstreetCN.middlewares.MyCustomDownloaderMiddleware': 543,
+#    'quantaxis.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -64,9 +64,9 @@ ROBOTSTXT_OBEY = False
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-    'wallstreetCN.pipelines.WallstreetcnPipeline': 300,
-}
+#ITEM_PIPELINES = {
+#    'quantaxis.pipelines.SomePipeline': 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html

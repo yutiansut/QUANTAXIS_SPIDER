@@ -8,7 +8,7 @@
 import scrapy
 
 
-class WallstreetcnItem(scrapy.Item):
+class QuantaxisItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass

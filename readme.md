@@ -7,8 +7,6 @@
 ![license](https://img.shields.io/badge/License-%20MIT-brightgreen.svg)
 
 [QUANTAXIS_VISUALIZATION](https://github.com/yutiansut/QUANTAXIS_VISUALIZATION)
-
-
 [QUANTAXIS](https://github.com/yutiansut/QUANTAXIS)
 ## 功能剥离与逻辑优化
 
@@ -31,10 +29,6 @@ python的爬虫部分已经完善,而问题在于我们之前所构想的逻辑�
 
 前两个已经实现,而问题出现在nodejs和python的热刷新问题上,并未找到较好的解决方案去处理热更新爬虫的问题
 我们现在更加倾向于纯JavaScript进行爬取,后台,以及前端网站框架
-
-
-
-
 -------------
 ## Stack
 ```
