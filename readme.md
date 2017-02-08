@@ -32,32 +32,18 @@ python的爬虫部分已经完善,而问题在于我们之前所构想的逻辑�
 -------------
 ## Stack
 ```
-nodejs
-express
-webpack
-vue.js
-vue-blu
+nodejs-spider
 python-scrapy-selenium-webdriver
 mongodb
 
 ```
 
-
 ## Features
-
-## Todolists
-### 热刷新问题
-ajax去请求数据异步刷新模块这些没问题,下一步是反向注入json任务给运行中的python和matlab核心去做热刷新
-在前端和爬虫和分析核中间也构建一个MVVM
-
-### 一键部署/安装  使用powershell
 
 ### 技术栈
 ![技术栈](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-visualCraw/todo.png)
-### Start页面
-![Start页面](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-front/pic/start.gif)
-### 前端设计
-![前端设计](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-front/pic/HomePage-design.png)
+### [Start页面](https://github.com/yutiansut/QUANTAXIS_VISUALIZATION)
+![Start页面](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-front/pic/start.gif).png)
 ### 爬取到的数据
 ![爬到的数据](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-front-back-Craw/pic/craw.png)
 ## 数据库查重
