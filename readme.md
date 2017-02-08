@@ -1,4 +1,4 @@
-# QUANTAXIS_SPIDER 爬虫[No Viusalized Version]
+# QUANTAXIS_SPIDER 爬虫[No Visualized Version]
 ###[QUANTAXIS 3.6](https://github.com/yutiansut/QUANTAXIS) 重构版本的爬虫部分
 
 
