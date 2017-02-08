@@ -43,7 +43,7 @@ mongodb
 ### 技术栈
 ![技术栈](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-visualCraw/todo.png)
 ### [Start页面](https://github.com/yutiansut/QUANTAXIS_VISUALIZATION)
-![Start页面](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-front/pic/start.gif).png)
+![Start页面](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-front/pic/start.gif)
 ### 爬取到的数据
 ![爬到的数据](https://github.com/yutiansut/QUANTAXIS_SPIDER/blob/dev-front-back-Craw/pic/craw.png)
 ## 数据库查重
