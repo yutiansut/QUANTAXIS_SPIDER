@@ -45,24 +45,7 @@ python-scrapy-selenium-webdriver
 mongodb
 
 ```
-## Usage
-* 安装python,nodejs,python-pip
-* 安装Quantaxis_Spider
-```
-git clone https://github.com/yutiansut/QUANTAXIS_SPIDER.git
-cd QUANTAXIS_SPIDER
-cd backend
-npm install
-cd ../frontend/quantaxisSpider
-npm install
-cd ../../childprocess
-python -m pip install -r requirements.txt
-```
-* 安装mongodb-启动Mongo服务
-```
-windows
-linux
-```
+
 
 ## Features
 
