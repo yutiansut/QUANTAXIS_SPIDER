@@ -6,6 +6,8 @@
 # http://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
+from scrapy.http import HtmlResponse
+from quantaxisSpider.phantomjs import selenium_request
 
 
 class QuantaxisspiderSpiderMiddleware(object):
@@ -54,3 +56,7 @@ class QuantaxisspiderSpiderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+    def process_request(self, request, spider):
+        print("Using process_request")
+        true_page = selenium_request(request.url)
+        return HtmlResponse(request.url, body=true_page, encoding='utf-8', request=request)
