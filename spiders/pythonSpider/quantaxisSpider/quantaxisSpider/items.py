@@ -8,7 +8,7 @@
 import scrapy
 
 
-class QuantaxisItem(scrapy.Item):
+class QuantaxisspiderItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass

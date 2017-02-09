@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for quantaxis project
+# Scrapy settings for quantaxisSpider project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'quantaxis'
+BOT_NAME = 'quantaxisSpider'
 
-SPIDER_MODULES = ['quantaxis.spiders']
-NEWSPIDER_MODULE = 'quantaxis.spiders'
+SPIDER_MODULES = ['quantaxisSpider.spiders']
+NEWSPIDER_MODULE = 'quantaxisSpider.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'quantaxis (+http://www.yourdomain.com)'
+#USER_AGENT = 'quantaxisSpider (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'quantaxis.middlewares.QuantaxisSpiderMiddleware': 543,
+#    'quantaxisSpider.middlewares.QuantaxisspiderSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'quantaxis.middlewares.MyCustomDownloaderMiddleware': 543,
+#    'quantaxisSpider.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'quantaxis.pipelines.SomePipeline': 300,
+#    'quantaxisSpider.pipelines.SomePipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)

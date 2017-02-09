@@ -2,8 +2,8 @@
 import scrapy
 
 
-class QuantaxisspiderSpider(scrapy.Spider):
-    name = "quantaxisSpider"
+class QuantaxisSpider(scrapy.Spider):
+    name = "quantaxis"
     allowed_domains = ["quantaxis.com"]
     start_urls = ['http://quantaxis.com/']
 
