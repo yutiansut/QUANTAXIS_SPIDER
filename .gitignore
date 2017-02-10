@@ -5,3 +5,4 @@ quantaxisback/
 *.7z
 .idea/
 *.log
+ts/
