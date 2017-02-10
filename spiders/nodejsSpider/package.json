@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "debug": "SET DEBUG=nodejsspider:*& npm start"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
