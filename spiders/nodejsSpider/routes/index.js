@@ -1,13 +1,21 @@
 var express = require('express');
 var router = express.Router();
-var spider = require('../methods/spider.js')
+var fs = require('fs');
+var superagent = require('superagent');
+var cheerio = require('cheerio');
+var axios = require('axios');
+var http = require('http'); 
+var events = require('events');
 
+var spider=new Spider({
+});
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
-});
-
-router.get('/tasks/1',function(req,res,next){
-  spider;
 })
+
+
+router.get('/ ')
+
 module.exports = router;
+ 

@@ -6,4 +6,7 @@ var s=new spider({
 
     }
 });
-s.request('http://www.baidu.com')
+s.request('https://www.baidu.com/s?wd=quantaxis')
+
+
+console.log('test'+s.response)
