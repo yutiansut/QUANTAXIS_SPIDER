@@ -11,6 +11,7 @@
     "body-parser": "~1.16.0",
     "cheerio": "^0.22.0",
     "cookie-parser": "~1.4.3",
+    "crawler": "^1.0.2",
     "debug": "~2.6.0",
     "ejs": "~2.5.5",
     "express": "~4.14.1",
@@ -32,6 +33,7 @@
     "superagent-suffix": "^0.1.0",
     "superagent-throttle": "^0.2.1",
     "superagent-use": "^0.1.0",
+    "url": "^0.11.0",
     "xpath": "0.0.23"
   },
   "description": "a nodejs version of quantaxis spider",

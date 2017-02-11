@@ -1,19 +1,45 @@
-var webdriver = require('selenium-webdriver'),
-    By = webdriver.By,
-    until = webdriver.until;
-    phantom = require('phantom');
-phantom.create([], {
-    phantomPath: '../../phantomjs.exe',
-    logLevel: 'debug',
-}) 
+var Crawler = require("crawler");
+var url = require('url');
 
-var driver = new webdriver.Builder()
-    .forBrowser('phantom')
-    .build();
+var c = new Crawler({
+    maxConnections : 10,
+    // This will be called for each crawled page
+    callback : function (error, res, done) {
+        if(error){
+            console.log(error);
+        }else{
+            var $ = res.$;
+            // $ is Cheerio by default
+            //a lean implementation of core jQuery designed specifically for the server
+            console.log($("title").text());
+        }
+        done();
+    }
+});
 
+// Queue just one URL, with default callback
+c.queue('http://www.amazon.com');
 
-driver.get('https://www.baidu.com');
-driver.findElement(By.id('kw')).sendKeys('webdriver');
-driver.findElement(By.id('su')).click();
-driver.wait(until.titleIs('webdriver_百度搜索'), 1000);
-driver.quit();
+// Queue a list of URLs
+c.queue(['http://www.google.com/','http://www.yahoo.com']);
+
+// Queue URLs with custom callbacks & parameters
+c.queue([{
+    uri: 'http://parishackers.org/',
+    jQuery: false,
+
+    // The global callback won't be called
+    callback: function (error, res, done) {
+        if(error){
+            console.log(error);
+        }else{
+            console.log('Grabbed', res.body.length, 'bytes');
+        }
+        done();
+    }
+}]);
+
+// Queue some HTML code directly without grabbing (mostly for tests)
+c.queue([{
+    html: '<p>This is a <strong>test</strong></p>'
+}]);
