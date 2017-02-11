@@ -1,10 +1,28 @@
 var fs = require('fs');
-var request = require('superagent');
+var superagent = require('superagent');
 var cheerio = require('cheerio');
 var axios = require('axios');
 var http = require('http'); 
-request
-    .get('https://api.wallstreetcn.com/v2/pcarticles?page=3&limit=20') 
+
+function Spider (options) {
+    var self = this;
+    options = options||{};  
+    self.init(options);
+    self.res= function(){
+        console.log('g')
+    }
+}
+
+Spider.prototype.init = function init (options){
+    var self = this;
+    self.useragent = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36'
+    console.log('init')
+}
+
+Spider.prototype.request = function request (url,callback){
+    console.log(this.useragent)
+superagent
+    .get(url) 
     .set({
         'user-agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.111 Safari/537.36'
     })
@@ -20,9 +38,10 @@ request
     })
     .end(function(err,res){
         if(err)throw err;
-        console.log(res.body.posts[1].resource.summary)
-        console.log(res.body.posts[1].resource.tags[1])
+        callback(res)
     })
+}
 
+module.exports=Spider;
 
 

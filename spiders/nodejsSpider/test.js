@@ -18,14 +18,14 @@ var c = new Crawler({
 });
 
 // Queue just one URL, with default callback
-c.queue('http://www.amazon.com');
+c.queue('http://www.baidu.com');
 
 // Queue a list of URLs
-c.queue(['http://www.google.com/','http://www.yahoo.com']);
+c.queue(['http://www.sina.com.cn/','http://www.sohu.com','http://www.zhihu.com']);
 
 // Queue URLs with custom callbacks & parameters
 c.queue([{
-    uri: 'http://parishackers.org/',
+    uri: 'http://nodejs.cn/',
     jQuery: false,
 
     // The global callback won't be called
