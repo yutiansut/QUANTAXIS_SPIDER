@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.stock = undefined;
 
-var _stock = require('./stock');
+var _stock = require('./lib');
 
 var stock = _interopRequireWildcard(_stock);
 
