@@ -32,3 +32,8 @@ Tips:在合并到QUANTAXIS4.0版本时,这个spider会和QUANTAXIS_VISUALIZATION
 localhost:[port]/stock/
 localhost:[port]/articles/
 localhost:[port]/cmd/
+
+## APIS
+
+localhost:3000/stock
+### /stock/history/All?code=xxx&feq=xxx
