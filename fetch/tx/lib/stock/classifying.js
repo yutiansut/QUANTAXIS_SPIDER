@@ -1,15 +1,23 @@
-import request from 'superagent-charset';
-import {
-  sinaIndustryIndexUrl,
-  sinaClassifyDetailUrl,
-  sinaConceptsIndexUrl,
-  allStockUrl,
-  hs300Url,
-  sz50Url,
-} from './urls';
-import { csvToObject, arrayObjectMapping, checkStatus } from './util';
-import { charset } from '../utils/charset';
-import '../utils/fetch';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getSZ50 = exports.getHS300 = exports.getAllStocks = exports.getSinaConceptsClassified = exports.getSinaClassifyDetails = exports.getSinaIndustryClassified = undefined;
+
+var _superagentCharset = require('superagent-charset');
+
+var _superagentCharset2 = _interopRequireDefault(_superagentCharset);
+
+var _urls = require('./urls');
+
+var _util = require('./util');
+
+var _charset = require('../utils/charset');
+
+require('../utils/fetch');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * getSinaIndustryClassified: 获取新浪行业板块数据
@@ -28,13 +36,13 @@ import '../utils/fetch';
  * leadingChangePrice: 领涨股涨跌额
  * leadingName: 领涨股名称
  */
-export const getSinaIndustryClassified = () => {
-  const url = sinaIndustryIndexUrl();
-  const mapData = data => {
-    const result = [];
-    const json = JSON.parse(data.split('=')[1].trim());
-    Object.keys(json).forEach(tag => {
-      const industryArr = json[tag].split(',');
+var getSinaIndustryClassified = exports.getSinaIndustryClassified = function getSinaIndustryClassified() {
+  var url = (0, _urls.sinaIndustryIndexUrl)();
+  var mapData = function mapData(data) {
+    var result = [];
+    var json = JSON.parse(data.split('=')[1].trim());
+    Object.keys(json).forEach(function (tag) {
+      var industryArr = json[tag].split(',');
       result.push({
         tag: industryArr[0],
         name: industryArr[1],
@@ -48,17 +56,15 @@ export const getSinaIndustryClassified = () => {
         leadingChangePercent: industryArr[9],
         leadingPrice: industryArr[10],
         leadingChangePrice: industryArr[11],
-        leadingName: industryArr[12],
+        leadingName: industryArr[12]
       });
     });
     return { data: result };
   };
 
-  return fetch(url, { disableDecoding: true })
-  .then(checkStatus)
-  .then(charset('GBK'))
-  .then(mapData)
-  .catch(error => ({ error }));
+  return fetch(url, { disableDecoding: true }).then(_util.checkStatus).then((0, _charset.charset)('GBK')).then(mapData).catch(function (error) {
+    return { error: error };
+  });
 };
 
 /**
@@ -86,38 +92,39 @@ export const getSinaIndustryClassified = () => {
  * @return {undefined}
  */
 /* eslint-disable no-eval */
-export const getSinaClassifyDetails = (query = {}) => {
-  const defaults = {
-    tag: 'new_jrhy', // 默认金融行业
-  };
-  const options = Object.assign({}, defaults, query);
-  const url = sinaClassifyDetailUrl(options.tag);
-  const mapData = data => {
-    let result = [];
+var getSinaClassifyDetails = exports.getSinaClassifyDetails = function getSinaClassifyDetails() {
+  var query = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+  var defaults = {
+    tag: 'new_jrhy' };
+  var options = Object.assign({}, defaults, query);
+  var url = (0, _urls.sinaClassifyDetailUrl)(options.tag);
+  var mapData = function mapData(data) {
+    var result = [];
     result = eval(data);
     if (result) {
-      result = result.map(ele => ({
-        symbol: ele.symbol,
-        name: ele.name,
-        price: ele.trade,
-        changePrice: ele.pricechange,
-        changePercent: ele.changepercent,
-        open: ele.open,
-        high: ele.high,
-        low: ele.low,
-        volume: ele.volume / 100,
-        amount: ele.amount / 10000,
-        tickTime: ele.ticktime,
-      }));
+      result = result.map(function (ele) {
+        return {
+          symbol: ele.symbol,
+          name: ele.name,
+          price: ele.trade,
+          changePrice: ele.pricechange,
+          changePercent: ele.changepercent,
+          open: ele.open,
+          high: ele.high,
+          low: ele.low,
+          volume: ele.volume / 100,
+          amount: ele.amount / 10000,
+          tickTime: ele.ticktime
+        };
+      });
     }
     return { data: result };
   };
 
-  return fetch(url, { disableDecoding: true })
-  .then(checkStatus)
-  .then(charset('GBK'))
-  .then(mapData)
-  .catch(error => ({ error }));
+  return fetch(url, { disableDecoding: true }).then(_util.checkStatus).then((0, _charset.charset)('GBK')).then(mapData).catch(function (error) {
+    return { error: error };
+  });
 };
 
 /**
@@ -140,12 +147,12 @@ export const getSinaClassifyDetails = (query = {}) => {
  * @param cb
  * @returns {undefined}
  */
-export const getSinaConceptsClassified = () => {
-  const url = sinaConceptsIndexUrl();
-  const mapData = data => {
-    const json = JSON.parse(data.split('=')[1].trim());
-    const result = Object.keys(json).map(tag => {
-      const conceptsArr = json[tag].split(',');
+var getSinaConceptsClassified = exports.getSinaConceptsClassified = function getSinaConceptsClassified() {
+  var url = (0, _urls.sinaConceptsIndexUrl)();
+  var mapData = function mapData(data) {
+    var json = JSON.parse(data.split('=')[1].trim());
+    var result = Object.keys(json).map(function (tag) {
+      var conceptsArr = json[tag].split(',');
       return {
         name: conceptsArr[1],
         num: conceptsArr[2],
@@ -158,17 +165,15 @@ export const getSinaConceptsClassified = () => {
         leadingChangePercent: conceptsArr[9],
         leadingPrice: conceptsArr[10],
         leadingChangePrice: conceptsArr[11],
-        leadingName: conceptsArr[12],
+        leadingName: conceptsArr[12]
       };
     });
     return { data: result };
   };
 
-  return fetch(url)
-  .then(checkStatus)
-  .then(charset('GBK'))
-  .then(mapData)
-  .catch(error => ({ error }));
+  return fetch(url).then(_util.checkStatus).then((0, _charset.charset)('GBK')).then(mapData).catch(function (error) {
+    return { error: error };
+  });
 };
 
 /**
@@ -198,14 +203,14 @@ export const getSinaConceptsClassified = () => {
  * @param cb
  * @returns {undefined}
  */
-export const getAllStocks = () => {
-  const url = allStockUrl();
+var getAllStocks = exports.getAllStocks = function getAllStocks() {
+  var url = (0, _urls.allStockUrl)();
 
-  return fetch(url)
-  .then(checkStatus)
-  .then(charset('GBK'))
-  .then(data => ({ data: csvToObject(data) }))
-  .catch(error => ({ error }));
+  return fetch(url).then(_util.checkStatus).then((0, _charset.charset)('GBK')).then(function (data) {
+    return { data: (0, _util.csvToObject)(data) };
+  }).catch(function (error) {
+    return { error: error };
+  });
 };
 
 /**
@@ -236,14 +241,16 @@ export const getAllStocks = () => {
  * @param cb
  * @returns {undefined}
  */
-export const getHS300 = () => {
-  const url = hs300Url();
+var getHS300 = exports.getHS300 = function getHS300() {
+  var url = (0, _urls.hs300Url)();
 
-  return fetch(url)
-  .then(checkStatus)
-  .then(res => res.json())
-  .then(json => ({ data: arrayObjectMapping(json[0].fields, json[0].items) }))
-  .catch(error => ({ error }));
+  return fetch(url).then(_util.checkStatus).then(function (res) {
+    return res.json();
+  }).then(function (json) {
+    return { data: (0, _util.arrayObjectMapping)(json[0].fields, json[0].items) };
+  }).catch(function (error) {
+    return { error: error };
+  });
 };
 
 /**
@@ -274,12 +281,14 @@ export const getHS300 = () => {
  * @param cb
  * @returns {undefined}
  */
-export const getSZ50 = () => {
-  const url = sz50Url();
+var getSZ50 = exports.getSZ50 = function getSZ50() {
+  var url = (0, _urls.sz50Url)();
 
-  return fetch(url)
-  .then(checkStatus)
-  .then(res => res.json())
-  .then(json => ({ data: arrayObjectMapping(json[0].fields, json[0].items) }))
-  .catch(error => ({ error }));
+  return fetch(url).then(_util.checkStatus).then(function (res) {
+    return res.json();
+  }).then(function (json) {
+    return { data: (0, _util.arrayObjectMapping)(json[0].fields, json[0].items) };
+  }).catch(function (error) {
+    return { error: error };
+  });
 };

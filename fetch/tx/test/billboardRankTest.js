@@ -1,24 +1,22 @@
-import test from 'ava';
-import { stock } from '../lib';
+const stock = require('../lib').stock;
 
-test('Get Long Period Rank Data by month', t => {
-  const options = {
-    period: 'month',
-    pageNo: 1,
-    pageSize: 100,
-  };
-  return stock.longPeriodRank(options).then(({ data }) => {
-    t.truthy(data.items.length === 100, 'It should return 100 records');
-  });
+
+const options = {
+  period: 'month',
+  pageNo: 1,
+  pageSize: 100,
+};
+stock.longPeriodRank(options).then(({ data }) => {
+  console.log(data);
 });
 
-test('Get Long Period Rank Data by month', t => {
-  const options = {
-    period: 'quarter',
-    pageNo: 1,
-    pageSize: 100,
-  };
-  return stock.longPeriodRank(options).then(({ data }) => {
-    t.truthy(data.items.length === 100, 'It should return 100 records');
-  });
+
+
+const options2 = {
+  period: 'quarter',
+  pageNo: 1,
+  pageSize: 100,
+};
+stock.longPeriodRank(options2).then(({ data }) => {
+  console.log(data);
 });

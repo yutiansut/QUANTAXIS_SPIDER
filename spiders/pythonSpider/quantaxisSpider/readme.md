@@ -22,4 +22,6 @@ Techweb http://www.techweb.com.cn/news/
 做一个通用爬虫 QUANTAXIS SPIDER
 
 * http://www.36kr.com/     .//*/div/div/div/section/p//text()
-* 
+* http://www.ftchinese.com/story/001070451?full=y        .//*/div/div/div[1]/div/div/div/p//text()
+
+

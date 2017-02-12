@@ -1,25 +1,13 @@
-import test from 'ava';
-import { stock } from '../lib';
+const stock = require('../lib').stock;
 
-test('Get default classifying Details', t => {
-  t.plan(2);
-  return stock.getSinaClassifyDetails().then(({ data }) => {
-    console.log(data);
-    t.truthy(Object.prototype.toString.apply(data) === '[object Array]',
-      'It should return an array of stocks of an industry');
-    t.truthy(data.length > 0, 'It should return more than one stocks in an industry');
-  });
+stock.getSinaClassifyDetails().then(({ data }) => {
+  console.log(data);
 });
 
-test('Get specified classifying Details', t => {
-  t.plan(2);
-  const options = {
-    tag: 'gn_zndw',
-  };
-  return stock.getSinaClassifyDetails(options).then(({ data }) => {
-    console.log(data);
-    t.truthy(Object.prototype.toString.apply(data) === '[object Array]',
-      'It should return an array of stocks of an industry');
-    t.truthy(data.length > 0, 'It should return more than one stocks in an industry');
-  });
+const options = {
+  tag: 'gn_zndw',
+};
+stock.getSinaClassifyDetails(options).then(({ data }) => {
+  console.log(data);
 });
+

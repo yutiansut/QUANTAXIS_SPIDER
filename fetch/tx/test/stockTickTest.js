@@ -1,15 +1,10 @@
-import test from 'ava';
-import { stock } from '../lib';
+const stock = require('../lib').stock;
 
-test('Get Tick Data', t => {
-  t.plan(1);
-  const query = {
-    code: '600848',
-    date: '2015-12-31',
-  };
-  return stock.getTick(query).then(({ data }) => {
-    console.log(data);
-    t.truthy(Object.prototype.toString.apply(data) === '[object Array]',
-      'It should return the object of day price');
-  });
+const query = {
+  code: '600848',
+  date: '2015-12-31',
+};
+stock.getTick(query).then(({ data }) => {
+  console.log(data);
 });
+
