@@ -1,11 +1,6 @@
 # QUANTAXIS_SPIDER  (Nodejs version)
 
 
-思路
-通过superagent 获取目标网站的dom
-通过cheerio对dom进行解析，获得通用布局。
-
-[TOC]
 
 ## Using superagent for http requests
 

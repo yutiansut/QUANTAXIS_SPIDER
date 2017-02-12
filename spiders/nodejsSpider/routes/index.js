@@ -7,15 +7,15 @@ var axios = require('axios');
 var http = require('http'); 
 var events = require('events');
 
-var spider=new Spider({
-});
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 })
 
 
-router.get('/ ')
+
+
+
 
 module.exports = router;
  
