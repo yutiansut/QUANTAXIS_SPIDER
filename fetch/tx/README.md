@@ -1,27 +1,3 @@
-# tushare.js
-
-这是[tushare](http://tushare.org/)的nodejs版，正在开发当中。如果有感兴趣的同学，非常欢迎一起完善该项目。
-
-tushare的数据大多来自于各大网站股票金融频道的数据。本质上是去抓取这些网站的数据，以此方便二次使用。文档目前并不完善，使用方法（接口）
-请参考`test/`目录内的单元测试
-
-### 使用方法:
-```
-npm install tushare --save
-npm run build
-npm run test
-```
-
-然后:
-```
-import { stock } from 'tushare';
-
-stock.getTodayAll().then(({ data }) => {
-  console.log(data);
-});
-
-```
-
 ## 交易数据
 
 ## 1. 获取个股历史数据
