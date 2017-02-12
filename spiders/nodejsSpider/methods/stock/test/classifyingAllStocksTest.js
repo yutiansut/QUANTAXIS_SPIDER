@@ -1,4 +1,4 @@
-const stock = require('../lib').stock;
+const stock = require('../index').stock;
 
 
 stock.getAllStocks().then(({ data }) => {

@@ -1,5 +1,4 @@
-const stock = require('../lib').stock;
-
+const stock = require('../index').stock;
 
 const query = { code: '600848' };
 stock.getHistory(query).then(({ data }) => {
