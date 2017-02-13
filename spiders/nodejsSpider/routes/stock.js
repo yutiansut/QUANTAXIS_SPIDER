@@ -29,9 +29,7 @@ router.get('/history/all', function(req, res, next) {
 });
 
 router.get('/history/time', function(req, res, next) {
-  console.log(req.query.code);
-  console.log(req.query.start);
-  console.log(req.query.end);
+
   var code=req.query.code;
   var options={
     code:code
@@ -41,20 +39,31 @@ router.get('/history/time', function(req, res, next) {
   console.log(options)
   stock.getHistory(options).then(({ data }) => {
     var datas=data.record;
+    console.log(end)
+    var datas=data.record;
+    function getid(date){
     for(i=0;i<datas.length;i++){
-      if (datas[i][0]==start){
-        var sId=i;
+      if (datas[i][0]==date){
+        console.log('i'+i)
+        return i
       }
     }
-    for(i=0;i<datas.length;i++){
-      if (datas[i][0]==end){
-        var eId=i;
-      }
     }
-    console.log(sId)
-
-    var newarray=datas.slice(sId,eId)
-    res.send(newarray)
+    var sId=getid(start);
+    console.log('sId'+sId);
+    var eId=getid(end);
+    console.log('eId'+eId);
+    if (sId=='undefined'){
+      res.send("Wrong Date or No data")
+    }
+    else if (eId=='undefined'){
+      res.send("Wrong Date or No data")
+    }
+    else{
+      var newarray=datas.slice(sId,eId+1)
+      res.send(newarray)
+    }
+    
   });
 });
 
