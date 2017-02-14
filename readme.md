@@ -37,6 +37,8 @@ localhost:[port]/cmd/
 
 localhost:3000/stock
 ### /stock/history/All?code=xxx&feq=xxx
+
+    
 ### /stock/history/All?code=xxx&start=(yyyy-mm-dd)&end=(yyyy-mm-dd)
 
 

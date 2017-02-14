@@ -74,17 +74,11 @@ router.get('/index', function(req, res, next) {
   });
 });
 
-router.get('/index', function(req, res, next) {
-
-  stock.getIndex().then(({ data }) => {
-  res.send(data);
-  });
-});
 
 
 router.get('/live', function(req, res, next) {
   var code=req.query.code;
-  const query = {
+  var query = {
     codes:code
   };
   stock.getLiveData(query).then(({ data }) => {
