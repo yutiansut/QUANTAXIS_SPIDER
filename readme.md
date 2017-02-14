@@ -36,11 +36,8 @@ localhost:[port]/cmd/
 ## APIS
 
 localhost:3000/stock
-### /stock/history/All?code=xxx&feq=xxx
-
-    
-### /stock/history/All?code=xxx&start=(yyyy-mm-dd)&end=(yyyy-mm-dd)
-
-
+### /stock/history/all?code=xxx&feq=xxx
+### /stock/history/time?code=xxx&start=(yyyy-mm-dd)&end=(yyyy-mm-dd)
 ### /stock/index/
 ### /stock/live?code=xxx
+### /stock/quota/lhb?

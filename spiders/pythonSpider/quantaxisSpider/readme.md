@@ -23,5 +23,19 @@ Techweb http://www.techweb.com.cn/news/
 
 * http://www.36kr.com/     .//*/div/div/div/section/p//text()
 * http://www.ftchinese.com/story/001070451?full=y        .//*/div/div/div[1]/div/div/div/p//text()
+* 新浪 html/body/div[1]/div[5]/div[2]/div/div[1]/table/tbody//text()
+* 千股千评http://vip.stock.finance.sina.com.cn/q/go.php/vInvestConsult/kind/qgqp/index.phtml?num=2000
 
+龙虎榜
+http://vip.stock.finance.sina.com.cn/q/go.php/vInvestConsult/kind/lhb/index.phtml?tradedate=2017-02-06
+个股上榜统计
+http://vip.stock.finance.sina.com.cn/q/go.php/vLHBData/kind/ggtj/index.phtml
 
+多盈数据
+http://vip.stock.finance.sina.com.cn/q/go.php/vDYData/kind/dpqs/index.phtml(大盘趋势)
+http://vip.stock.finance.sina.com.cn/q/go.php/vDYData/kind/dxcj/index.phtml(短线扫盘)
+http://vip.stock.finance.sina.com.cn/q/go.php/vDYData/kind/zlsp/index.phtml(主力扫盘)
+http://vip.stock.finance.sina.com.cn/q/go.php/vDYData/kind/bdmr/index.phtml(B点买入)
+http://vip.stock.finance.sina.com.cn/q/go.php/vDYData/kind/kdfp/index.phtml(K多方炮)
+http://vip.stock.finance.sina.com.cn/q/go.php/vDYData/kind/kpjc/index.phtml(控盘金叉)
+http://vip.stock.finance.sina.com.cn/q/go.php/vDYData/kind/znzd/index.phtml(智能诊断)
