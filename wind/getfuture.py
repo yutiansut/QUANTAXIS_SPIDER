@@ -1,7 +1,4 @@
 # -*- coding:utf-8 -*-
-from WindPy import *
-w.start()
-from datetime import datetime
 
 
 #先搞上期

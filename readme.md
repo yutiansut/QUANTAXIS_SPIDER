@@ -18,20 +18,28 @@ Spider这个分支是一个精简分支,为了QUANTAXIS4.0做准备的数据获�
 
 Spider分支主要有两个语言版本爬虫
 
-(*)QUANTAXIS_Spider(Python Version)--不再维护
+QUANTAXIS_Spider(Python Version)-- ctp,爬虫,股票,期货数据等
 
-**QUANTAXIS_Spider(Nodejs Version)--未来版本**
+QUANTAXIS_Spider(Nodejs Version)--
 
 等到后台逻辑确定,前端需求框架完善以后,我们会逐步的把python版本的爬虫去除
 
 Tips:在合并到QUANTAXIS4.0版本时,这个spider会和QUANTAXIS_VISUALIZATION的backend/合并
 
 
+### Python Version
+* python with wind
+* python with spider
+* python with ctp
+
+
+### Nodejs Version
 这个爬虫还是基于express的后端+api调用+methods构成
 会根据方法的不同,如
 localhost:[port]/stock/
 localhost:[port]/articles/
 localhost:[port]/cmd/
+
 
 ## APIS
 
