@@ -29,6 +29,7 @@
     "request": "^2.79.0",
     "selenium-webdriver": "^3.0.1",
     "serve-favicon": "~2.3.2",
+    "socket.io": "^1.7.3",
     "superagent": "^1.6.1",
     "superagent-cache": "^1.7.2",
     "superagent-charset": "^0.1.1",
