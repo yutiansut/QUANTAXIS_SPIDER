@@ -1,51 +1,66 @@
-# QUANTAXIS_SPIDER 爬虫
-###[QUANTAXIS 3.6](https://github.com/yutiansut/QUANTAXIS) 重构版本的爬虫部分
+# Spider 爬虫部分
 
 
-![build](https://img.shields.io/badge/Build-passing-green.svg)
-![author](https://img.shields.io/badge/Powered%20by-%20%20yutiansut-red.svg)
-![license](https://img.shields.io/badge/License-%20MIT-brightgreen.svg)
+财经资讯
 
-[QUANTAXIS_VISUALIZATION](https://github.com/yutiansut/QUANTAXIS_VISUALIZATION) 可视化(客户端/网页)| VISUALIZATION Client/Webpages
+东方财富网 http://www.eastmoney.com/
 
-[QUANTAXIS](https://github.com/yutiansut/QUANTAXIS)  未来主分支,目前还是matlab版本 |Future Master Branch, now still a old 3.6 Version with matlab
+新浪财经 http://finance.sina.com.cn/
 
+证券之星 http://www.stockstar.com/home.htm
 
-## QUANTAXIS_SPIDER - Spider Branch
+和讯财经 http://www.hexun.com/
 
-Spider这个分支是一个精简分支,为了QUANTAXIS4.0做准备的数据获取版本.
-在这个版本中,我们去除了大量数据可视化的内容,也将原来的爬虫逻辑进行了重构.
+中国证券网 http://www.cnstock.com/
 
-Spider分支主要有两个语言版本爬虫
+中金在线 http://www.cnfol.com/
 
-QUANTAXIS_Spider(Python Version)-- ctp,爬虫,股票,期货数据等
+股吧 http://guba.eastmoney.com/
 
-QUANTAXIS_Spider(Nodejs Version)--
+凤凰财经 http://finance.ifeng.com/
 
-等到后台逻辑确定,前端需求框架完善以后,我们会逐步的把python版本的爬虫去除
+中财网 http://www.cfi.net.cn/
 
-Tips:在合并到QUANTAXIS4.0版本时,这个spider会和QUANTAXIS_VISUALIZATION的backend/合并
+金融界 http://www.jrj.com.cn/
 
+搜狐财经 http://business.sohu.com/
 
-### Python Version
-* python with wind
-* python with spider
-* python with ctp
+天天基金网 http://fund.eastmoney.com/
 
+腾讯财经 http://finance.qq.com/
 
-### Nodejs Version
-这个爬虫还是基于express的后端+api调用+methods构成
-会根据方法的不同,如
-localhost:[port]/stock/
-localhost:[port]/articles/
-localhost:[port]/cmd/
+纸黄金 http://www.zhihuangjin.com/
 
+第一财经 http://www.yicai.com/
 
-## APIS
+网易财经 http://money.163.com/
 
-localhost:3000/stock
-### /stock/history/all?code=xxx&feq=xxx
-### /stock/history/time?code=xxx&start=(yyyy-mm-dd)&end=(yyyy-mm-dd)
-### /stock/index/
-### /stock/live?code=xxx
-### /stock/quota/lhb?
+中国证券报 http://www.cs.com.cn/
+
+中国金融网 http://www.financeun.com/
+
+全景网 http://www.p5w.net/
+
+FT中文网 http://www.ftchinese.com/
+
+华股财经 http://www.huagu.com/
+
+2258财经网 http://www.2258.com/
+
+中国网财经 http://finance.china.com.cn/
+
+财经网 http://www.caijing.com.cn/
+
+财新网 http://www.caixin.com/
+
+丰华财经 http://www.jfinfo.com/
+
+i美股 http://www.imeigu.com/
+
+证券时报 http://www.stcn.com/
+
+大公财经 http://finance.takungpao.com/
+
+赢在投资 http://www.yztz.com/
+
+巴山财经 http://www.bashan.com/
